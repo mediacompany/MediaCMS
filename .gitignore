@@ -1,0 +1,5 @@
+.DS_Store
+composer.json
+composer.lock
+.sublime-project
+.sublime-workspace
