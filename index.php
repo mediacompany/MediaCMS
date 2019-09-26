@@ -11,7 +11,7 @@ session_start();
 require 'core.php';
 //require 'file-functions.php';
 $core->route('/', function() use ($core){
-    $core->render('home', array('title' => 'Mediahaus - No Access', 'classb' => 'home'));
+    $core->render('home', array('title' => 'Mediahaus - Plantilla', 'classb' => 'home'));
 });
 
 $core->start();
