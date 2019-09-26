@@ -16,8 +16,7 @@ $core->register('db', 'PDO', array("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSE
     }
 );
 require ABSPATH.'/core/db-manager.php';
-$core->map('checkAuthPermission',function($area = array()){
-    global $core;
+$core->map('checkAuthPermission',function($area = array()) use ($core){
     if(empty($_SESSION['mcb_user'])){
         $core->redirect('/');  
         die();
@@ -33,8 +32,7 @@ $core->map('checkAuthPermission',function($area = array()){
         die();
     }
 });
-$core->map('checkAuth',function($lvl){
-    global $core;
+$core->map('checkAuth',function($lvl) use ($core){
     $core->set('flight.views.path', ABSPATH.'/core/views');
     if(empty($_SESSION['mcb_user'])){
         $core->render('notLogedIn', array('title' => 'Mediahaus - No Access', 'section' => 'noadmin'));
@@ -45,8 +43,7 @@ $core->map('checkAuth',function($lvl){
         die();
     }
 });
-$core->map('register_module',function($module_data = array()){
-    global $core;
+$core->map('register_module',function($module_data = array()) use ($core){
     $modules = $core->get('modules');
     $modules[$module_data['order']] = $module_data;
     $core->set('modules',$modules);
@@ -77,8 +74,7 @@ $core->map('file_upload',function($file_data = null,$folder = null,$set_name = n
 
 });
 
-$core->map('header',function(){
-    global $core;
+$core->map('header',function() use ($core){
     if (!empty($core->get('admin_css'))) {
         foreach ($core->get('admin_css') as $key => $value) {
             echo "<link rel='stylesheet' href='".SITE.$value."'>";
@@ -86,8 +82,7 @@ $core->map('header',function(){
     }
 });
 
-$core->map('footer',function(){
-    global $core;
+$core->map('footer',function() use ($core){
     if (!empty($core->get('admin_js'))) {
         foreach ($core->get('admin_js') as $key => $value) {
             echo "<script src='".SITE.$value."'></script>";
@@ -95,8 +90,7 @@ $core->map('footer',function(){
     }
 });
 
-$core->map('header_front',function(){
-    global $core;
+$core->map('header_front',function() use ($core){
     if (!empty($core->get('admin_css'))) {
         foreach ($core->get('admin_css') as $key => $value) {
             echo "<link rel='stylesheet' href='".SITE.$value."'>";
@@ -104,8 +98,7 @@ $core->map('header_front',function(){
     }
 });
 
-$core->map('footer_front',function(){
-    global $core;
+$core->map('footer_front',function() use ($core){
     if (!empty($core->get('admin_js'))) {
         foreach ($core->get('admin_js') as $key => $value) {
             echo "<script src='".SITE.$value."'></script>";
@@ -139,11 +132,37 @@ $core->map('notify_helper_add',function($notify){
     array_push($_SESSION['system_notify'], $notify);
 });
 
-$core->map('render_admin',function($data = array()){
-    global $core;
+$core->map('render_admin',function($data = array()) use ($core){
     $core->set('flight.views.path', ABSPATH.'/core/views');
     $core->render('global',$data);
 });
+
+$core->map('display_pagination',function($data = array()) use ($core){
+    //$core->set('flight.views.path', ABSPATH.'/core/views');
+    //$core->render('global',$data);
+    echo '
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    ';
+});
+
 
 /**
  * Load the MediaCompany modules.
