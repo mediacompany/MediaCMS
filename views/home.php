@@ -1,4 +1,4 @@
-<?php  include 'header.php'; // load global admin header ?>
+<?php  include 'include/header.php'; // load global admin header ?>
 
 <article>
     <h1>¡Estaremos de vuelta pronto!</h1>
@@ -9,4 +9,4 @@
     <img src="assets/img/mediahausnegro.svg" style="background-color: #fff;padding: 20px;border-radius: 15px;">
 </article>
 
-<?php include 'footer.php'; // load global admin footer ?>
+<?php include 'include/footer.php'; // load global admin footer ?>

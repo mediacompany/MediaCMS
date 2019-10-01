@@ -92,13 +92,11 @@ $core->route('POST /admin/user/@id', function($id) use ($core){
     }
     $core->redirect('/admin/users');
 });
-
 $core->route('/admin/out', function() use ($core){
   unset($_SESSION['mcb_user']);
   session_destroy();
   $core->redirect('/admin');
 });
-
 $core->route('POST /admin/ajax', function() use ($core){
     $request = $core->request()->data;
     $action = $request->action;

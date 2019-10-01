@@ -1,0 +1,12 @@
+{
+    "files":{
+        "css":{
+            "front":["bootstrap.min.css","main.css"],
+            "admin":[]
+        },
+        "js":{
+            "front":["jquery.min.js","bootstrap.min.js","main.js"],
+            "admin":[]
+        }
+    }
+}

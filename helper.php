@@ -1,4 +1,5 @@
 <?php
+$core->set('config_file', json_decode(file_get_contents('config.json')));
 $core->set('flight.log_errors', true);
 $core->set('modules', array());
 $core->set('admin_js', array());
@@ -53,7 +54,6 @@ $core->map('prettyDate',function($date){
     $meses = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
     echo $date_source[2].' de '.$meses[$date_source[1]].', '.$date_source[0];
 });
-
 $core->map('file_upload',function($file_data = null,$folder = null,$set_name = null,$max_file_size = 1,$max_file_size_measurment = 'MB', $ext = 'jpg' ){
     $multipier = ['KB' => 1024, 'MB' => 1048576, 'GB' => 1073741824, 'TB' => 1099511627776];
     //var_dump($max_file_size*$multipier[$max_file_size_measurment]);die();
@@ -73,39 +73,46 @@ $core->map('file_upload',function($file_data = null,$folder = null,$set_name = n
     return array('error' => 'no', 'message' => 'File uploaded succesfully', 'path' => ABSPATH . $folder . $file_name, 'url' => SITE .'/'. $folder . $file_name );
 
 });
-
 $core->map('header',function() use ($core){
     if (!empty($core->get('admin_css'))) {
         foreach ($core->get('admin_css') as $key => $value) {
-            echo "<link rel='stylesheet' href='".SITE.$value."'>";
+            echo "<link rel='stylesheet' href='".SITE."/assets/css/".$value."'>";
         }
     }
+    foreach($core->get('config_file')->files->css->admin as $a){
+        echo "<link rel='stylesheet' href='".SITE."/assets/css/".$a."'>";
+    }
 });
-
 $core->map('footer',function() use ($core){
     if (!empty($core->get('admin_js'))) {
         foreach ($core->get('admin_js') as $key => $value) {
-            echo "<script src='".SITE.$value."'></script>";
+            echo "<script src='".SITE."/assets/js/".$value."'></script>";
         }
     }
+    foreach($core->get('config_file')->files->js->admin as $a){
+        echo "<link rel='stylesheet' href='".SITE."/assets/js/".$a."'>";
+    }
 });
-
 $core->map('header_front',function() use ($core){
     if (!empty($core->get('admin_css'))) {
         foreach ($core->get('admin_css') as $key => $value) {
-            echo "<link rel='stylesheet' href='".SITE.$value."'>";
+            echo "<link rel='stylesheet' href='".SITE."/assets/css/".$value."'>";
         }
     }
+    foreach($core->get('config_file')->files->css->front as $a){
+        echo "<link rel='stylesheet' href='".SITE."/assets/css/".$a."'>";
+    }
 });
-
 $core->map('footer_front',function() use ($core){
     if (!empty($core->get('admin_js'))) {
         foreach ($core->get('admin_js') as $key => $value) {
-            echo "<script src='".SITE.$value."'></script>";
+            echo "<script src='".SITE."/assets/js/"."/assets/js".$value."'></script>";
         }
     }
+    foreach($core->get('config_file')->files->js->front as $a){
+        echo "<link rel='stylesheet' href='".SITE."/assets/js/".$a."'>";
+    }
 });
-
 $core->map('notify_helper',function(){
     $notifycations = array();
     if (!empty($_SESSION['system_notify'])) {
@@ -131,12 +138,10 @@ $core->map('notify_helper_add',function($notify){
     }
     array_push($_SESSION['system_notify'], $notify);
 });
-
 $core->map('render_admin',function($data = array()) use ($core){
     $core->set('flight.views.path', ABSPATH.'/core/views');
     $core->render('global',$data);
 });
-
 $core->map('display_pagination',function($data = array()) use ($core){
     //$core->set('flight.views.path', ABSPATH.'/core/views');
     //$core->render('global',$data);
@@ -162,8 +167,6 @@ $core->map('display_pagination',function($data = array()) use ($core){
         </nav>
     ';
 });
-
-
 /**
  * Load the MediaCompany modules.
  *

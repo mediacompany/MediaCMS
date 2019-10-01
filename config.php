@@ -1,6 +1,6 @@
 <?php
 /** Absolute path to site directory. */
-define('ABSPATH', dirname(__FILE__) . '/');
+define('ABSPATH', dirname(__FILE__));
 define('SITE', ((!empty($_SERVER['HTTPS']))? "https://" : "http://").$_SERVER['HTTP_HOST'].((dirname($_SERVER['PHP_SELF'])=="/") ? "" : dirname($_SERVER['PHP_SELF'])));
 define('DBHOST','localhost');
 define('DBUSER','root');
