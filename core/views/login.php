@@ -3,7 +3,7 @@
 	<div class="make_vertical_center">
 		<div class="elem_center_vertical">
 			<form class="ajax_form">
-				<input type="hidden" name="action" value="sign-in">
+				<input type="hidden" name="action" value="sign-in-admin">
 				<div class="col-sm-12 login_logo">
 					 <a href="<?php echo SITE; ?>/admin">
 					 	<img src="<?php echo SITE; ?>/core/assets/img/mediahausnegro.svg">

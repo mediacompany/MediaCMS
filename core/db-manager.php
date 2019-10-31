@@ -1,6 +1,18 @@
 <?php
+/**
+ * Create table on DB.
+ *
+ * create table on DB configure on config.php
+ *
+ * @since 1.0.0
+ *
+ * @param string $table_name Name of the table without prefix, this added automatic
+ * @param string $sql standar SQL for create a table
+ * @param bool  $echo    Whether to echo or just return the string
+ * @return none
+ */
 $core->map('add_table',function($table_name,$sql) use ($core){
-    // Global cope to access DB with PDO
+    // Global scope to access DB with PDO
     $db = $core->db();
     $prefix = DBPREFIX; // prefix define on config.php
     $create_sql = " 
@@ -11,7 +23,18 @@ $core->map('add_table',function($table_name,$sql) use ($core){
     ";
     $db->exec($create_sql);
 });
-$core->map('insert_on',function($table, $data) use ($core){
+/**
+ * Insert a new row on DB.
+ *
+ * Easy function to insert a new row on DB based on assoc array
+ *
+ * @since 1.0.0
+ *
+ * @param string $table Name of table on DB to insert data
+ * @param string $data array of data, key is column on DB
+ * @return int of last insert
+ */
+$core->map('insert_on',function($table, $data = array()) use ($core){
     $db = $core->db();
     $prefix = DBPREFIX;
     $values = "";
@@ -39,7 +62,18 @@ $core->map('insert_on',function($table, $data) use ($core){
         die('<strong>Error:</strong> '.$e->getMessage());
     }    
 });
-//$core->insert_on('example', array('bar_column' => 'bar2'));
+/**
+ * Update content of row on DB.
+ *
+ * Update columns of row based on assoc array, the where condition is an simple array assoc
+ *
+ * @since 1.0.0
+ *
+ * @param string $table Name of table on DB to update data
+ * @param array $data Array of data, key is column on DB
+ * @param array $where Condition to make the update on specific row
+ * @return true if update is successful
+ */
 $core->map('update_on',function($table, $data, $where) use ($core){
     $db = $core->db();
     $prefix = DBPREFIX;
@@ -68,8 +102,19 @@ $core->map('update_on',function($table, $data, $where) use ($core){
         die('<strong>Error:</strong> '.$e->getMessage());
     }
 });
-//$core->update_on('example', array('bar_column' => 'barNaaaa','foo_column' => '2021-05-08 17:36:46'), array('ID' => 1));
-$core->map('get_all',function($table,$data = "",$select = "*") use ($core){
+/**
+ * Get all rows of table.
+ *
+ * Easy function to get all rows on DB
+ *
+ * @since 1.0.0
+ *
+ * @param string $table Name of table on DB to select data
+ * @param string $select Columns to get
+ * @param string $data option to put where condition
+ * @return object of all data
+ */
+$core->map('get_all',function($table,$select = "*",$data = "") use ($core){
     $db = $core->db();
     $prefix = DBPREFIX;
     $sql =  "SELECT $select FROM `{$prefix}_{$table}` ".$data;
@@ -81,7 +126,18 @@ $core->map('get_all',function($table,$data = "",$select = "*") use ($core){
         die('<strong>Error:</strong> '.$e->getMessage());
     }
 });
-//$core->get_all('examplea');
+/**
+ * Get single row of table.
+ *
+ * Easy function to get single row on DB
+ *
+ * @since 1.0.0
+ *
+ * @param string $table Name of table on DB to select data
+ * @param string $select Columns to get
+ * @param string $data option to put where condition
+ * @return object of all data
+ */
 $core->map('get_row',function($table,$select = "*",$data = "") use ($core){
     $db = $core->db();
     $prefix = DBPREFIX;
@@ -94,12 +150,22 @@ $core->map('get_row',function($table,$select = "*",$data = "") use ($core){
         die('<strong>Error:</strong> '.$e->getMessage());
     }
 });
-//$core->get_row('example','ID,foo_column')
+/**
+ * Delete a row of table.
+ *
+ * Easy function to delete single row on DB with a condition
+ *
+ * @since 1.0.0
+ *
+ * @param string $table Name of table on DB to delete data
+ * @param array $where Condition to delete specific row
+ * @return true if delete is successful
+ */
 $core->map('delete_on',function($table,$where) use ($core){
     $db = $core->db();
     $prefix = DBPREFIX;
     $key = array_keys($where)[0];
-    $sql =  "DELETE FROM `{$prefix}_{$table}`  WHERE $key = {$where[$key]};";
+    $sql =  "DELETE FROM `{$prefix}_{$table}` WHERE $key = {$where[$key]};";
     try {
         $stmt = $db->prepare($sql); 
         $stmt->execute();
@@ -108,4 +174,42 @@ $core->map('delete_on',function($table,$where) use ($core){
         die('<strong>Error:</strong> '.$e->getMessage());
     }
 });
-//$core->delete_on('example',array('ID' => 3));
+/**
+ * Make a regular SQL query.
+ *
+ * This function make a regular SQL query
+ *
+ * @since 1.0.0
+ *
+ * @param string $query Standar SQL query this need check previus use
+ * @return object of all data
+ */
+$core->map('query',function($query) use ($core){
+    $db = $core->db();
+    try {
+        $stmt = $db->prepare($query); 
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (Exception $e) {
+        die('<strong>Error:</strong> '.$e->getMessage());
+    }
+});
+/**
+ * Make a regular SQL execution.
+ *
+ * This function make a regular SQL execution
+ *
+ * @since 1.0.0
+ *
+ * @param string $query Standar SQL execution this need check previus use
+ * @return true is successful
+ */
+$core->map('exec',function($query) use ($core){
+    $db = $core->db();
+    try {
+        $db->exec($query);
+        return true;
+    } catch (Exception $e) {
+        die('<strong>Error:</strong> '.$e->getMessage());
+    }
+});

@@ -15,14 +15,14 @@ $core->register('db', 'PDO', array("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSE
 	    }
     }
 );
-require ABSPATH.'/core/db-manager.php';
+require ABSPATH.'core/db-manager.php';
 $core->map('checkAuthPermission',function($area = array()) use ($core){
     if(empty($_SESSION['mcb_user'])){
         $core->redirect('/');  
         die();
     }
     if( !empty($_SESSION['mcb_user']) && !(in_array($_SESSION['mcb_user']['level'], $area))  ){
-        $core->set('flight.views.path', ABSPATH.'/core/views');
+        $core->set('flight.views.path', ABSPATH.'core/views');
         $core->render('noaccess', array(
                 'title' => 'No Access - MediaCore',
                 'section' => 'noaccess',
@@ -32,8 +32,20 @@ $core->map('checkAuthPermission',function($area = array()) use ($core){
         die();
     }
 });
+
+$core->map('checkAuthPermission_ajax',function($area = array()) use ($core){
+    if(empty($_SESSION['mcb_user'])){
+        $core->json(array('error' => true,'state' => 0,'message' => 'you cannot use this ajax without logged in.','param' => null)); 
+        die();
+    }
+    if( !empty($_SESSION['mcb_user']) && !(in_array($_SESSION['mcb_user']['level'], $area))  ){
+        $core->json(array('error' => true,'state' => 0,'message' => 'you cannot use this ajax because dont have perrmission here.','param' => null));
+        die();
+    }
+});
+/*
 $core->map('checkAuth',function($lvl) use ($core){
-    $core->set('flight.views.path', ABSPATH.'/core/views');
+    $core->set('flight.views.path', ABSPATH.'core/views');
     if(empty($_SESSION['mcb_user'])){
         $core->render('notLogedIn', array('title' => 'Mediahaus - No Access', 'section' => 'noadmin'));
         die();
@@ -43,6 +55,7 @@ $core->map('checkAuth',function($lvl) use ($core){
         die();
     }
 });
+*/
 $core->map('register_module',function($module_data = array()) use ($core){
     $modules = $core->get('modules');
     $modules[$module_data['order']] = $module_data;
@@ -54,24 +67,29 @@ $core->map('prettyDate',function($date){
     echo $date_source[2].' de '.$meses[$date_source[1]].', '.$date_source[0];
 });
 
-$core->map('file_upload',function($file_data = null,$folder = null,$set_name = null,$max_file_size = 1,$max_file_size_measurment = 'MB', $ext = 'jpg' ){
-    $multipier = ['KB' => 1024, 'MB' => 1048576, 'GB' => 1073741824, 'TB' => 1099511627776];
-    //var_dump($max_file_size*$multipier[$max_file_size_measurment]);die();
+$core->map('file_upload',function($file_data=null,$folder=null,$set_name=null,$max_file_size=1,$max_file_size_measurment='MB'){
     if (!is_array($file_data)) {
         return  array('error' => 'yes', 'message' => 'File data is invalid!');
     }
-    if ($file_data['size'] > $max_file_size*$multipier[$max_file_size_measurment]) {
+    if ($file_data['size'] > $max_file_size*MULTIPLIER[$max_file_size_measurment]) {
         return  array('error' => 'yes', 'message' => 'File size exceeds the limit of: '.$max_file_size.$max_file_size_measurment);
     }
-    if (!empty($set_name)) {
-        $file_name = $set_name. '.' . $ext;
-    }else{
-        $temp = explode(".", $file_data["name"]);
-        $file_name = $temp[0]. '.' . $ext;
+    if (empty($folder)) {
+        return  array('error' => 'yes', 'message' => 'Folder to upload is empty!');
     }
-    move_uploaded_file($file_data["tmp_name"], ABSPATH . $folder . $file_name );
-    return array('error' => 'no', 'message' => 'File uploaded succesfully', 'path' => ABSPATH . $folder . $file_name, 'url' => SITE .'/'. $folder . $file_name );
-
+    if (!file_exists(ABSPATH.$folder)) {
+        mkdir(ABSPATH.$folder, 0755);
+    }
+    $filename = strtolower( pathinfo($file_data['name'], PATHINFO_FILENAME) );
+    $ext = strtolower( pathinfo($file_data['name'], PATHINFO_EXTENSION) );
+    if (!empty($set_name)) {
+        $file_name = slugify($set_name). '.' . $ext;
+    }else{
+        $file_name = slugify($filename). '.' . $ext;
+    }
+    $final_file = ABSPATH . trailingslashit($folder) . $file_name;
+    move_uploaded_file($file_data["tmp_name"], $final_file);
+    return array('error'=>'no','message'=>'File uploaded succesfully','path'=>$final_file,'url'=>SITE.trailingslashit($folder).$file_name);
 });
 
 $core->map('header',function() use ($core){
@@ -133,7 +151,7 @@ $core->map('notify_helper_add',function($notify){
 });
 
 $core->map('render_admin',function($data = array()) use ($core){
-    $core->set('flight.views.path', ABSPATH.'/core/views');
+    $core->set('flight.views.path', ABSPATH.'core/views');
     $core->render('global',$data);
 });
 
@@ -141,7 +159,7 @@ $core->map('display_pagination',function($data = array()) use ($core){
     //$core->set('flight.views.path', ABSPATH.'/core/views');
     //$core->render('global',$data);
     echo '
-        <nav aria-label="Page navigation">
+        <nav aria-label="Page navigation" class="text-right">
           <ul class="pagination">
             <li>
               <a href="#" aria-label="Previous">
@@ -162,119 +180,3 @@ $core->map('display_pagination',function($data = array()) use ($core){
         </nav>
     ';
 });
-
-
-/**
- * Load the MediaCompany modules.
- *
- * custom plugins, MediaCompany
- *
- * @since 1.0.0
- *
- */
-
-foreach(glob('modules/*', GLOB_ONLYDIR) as $dir) {
-    $dir = str_replace('modules/', '', $dir);
-    $filename = 'modules/'.$dir.'/'.$dir.'.php';
-    include $filename;
-}
-
-/**
- * Outputs the html checked attribute.
- *
- * Compares the first two arguments and if identical marks as checked
- *
- * @since 1.0.0
- *
- * @param mixed $checked One of the values to compare
- * @param mixed $current (true) The other value to compare if not just true
- * @param bool  $echo    Whether to echo or just return the string
- * @return string html attribute or empty string
- */
-function checked( $checked, $current = true, $echo = true ) {
-    return __checked_selected_helper( $checked, $current, $echo, 'checked' );
-}
-
-/**
- * Outputs the html selected attribute.
- *
- * Compares the first two arguments and if identical marks as selected
- *
- * @since 1.0.0
- *
- * @param mixed $selected One of the values to compare
- * @param mixed $current  (true) The other value to compare if not just true
- * @param bool  $echo     Whether to echo or just return the string
- * @return string html attribute or empty string
- */
-function selected( $selected, $current = true, $echo = true ) {
-    return __checked_selected_helper( $selected, $current, $echo, 'selected' );
-}
-
-/**
- * Outputs the html disabled attribute.
- *
- * Compares the first two arguments and if identical marks as disabled
- *
- * @since 3.0.0
- *
- * @param mixed $disabled One of the values to compare
- * @param mixed $current  (true) The other value to compare if not just true
- * @param bool  $echo     Whether to echo or just return the string
- * @return string html attribute or empty string
- */
-function disabled( $disabled, $current = true, $echo = true ) {
-    return __checked_selected_helper( $disabled, $current, $echo, 'disabled' );
-}
-
-/**
- * Outputs the html readonly attribute.
- *
- * Compares the first two arguments and if identical marks as readonly
- *
- * @since 4.9.0
- *
- * @param mixed $readonly One of the values to compare
- * @param mixed $current  (true) The other value to compare if not just true
- * @param bool  $echo     Whether to echo or just return the string
- * @return string html attribute or empty string
- */
-function readonly( $readonly, $current = true, $echo = true ) {
-    return __checked_selected_helper( $readonly, $current, $echo, 'readonly' );
-}
-
-/**
- * Private helper function for checked, selected, disabled and readonly.
- *
- * Compares the first two arguments and if identical marks as $type
- *
- * @since 2.8.0
- * @access private
- *
- * @param mixed  $helper  One of the values to compare
- * @param mixed  $current (true) The other value to compare if not just true
- * @param bool   $echo    Whether to echo or just return the string
- * @param string $type    The type of checked|selected|disabled|readonly we are doing
- * @return string html attribute or empty string
- */
-function __checked_selected_helper( $helper, $current, $echo, $type ) {
-    if ( (string) $helper === (string) $current ) {
-        $result = " $type='$type'";
-    } else {
-        $result = '';
-    }
-
-    if ( $echo ) {
-        echo $result;
-    }
-
-    return $result;
-}
-function current_page( $current, $page ) {
-    if ( (string) $page === (string) $current ) {
-        $result = 'class="active"';
-    } else {
-        $result = '';
-    }
-    echo $result;
-}

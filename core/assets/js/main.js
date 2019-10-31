@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
 		}
 	}
 	$('.ajax_form').submit(function(){
-		$.post(base_url+'/admin/ajax',$(this).serializeArray(), function(data){
+		$.post(base_url+'admin/ajax',$(this).serializeArray(), function(data){
 			console.log(data)
 			ajax_resp_actions(data.action,data.param,data.state)
 		})
@@ -71,7 +71,7 @@ jQuery(document).ready(function($){
 		$($(this).attr('href')).modal();
 	})
 	$('#task_area').change(function(){
-		$.post(base_url+'/ajax',{'action':'get_resources_onchange','filter': $(this).val()},function(resp){
+		$.post(base_url+'ajax',{'action':'get_resources_onchange','filter': $(this).val()},function(resp){
 			$('#ID_resources').hide().html(resp).delay(200).fadeIn()
 		})
 	})

@@ -11,13 +11,14 @@ if (!defined('SITE')) {
     );
 }
 // load composer
-require 'vendor/autoload.php';
+require ABSPATH.'vendor/autoload.php';
 use flight\Engine;
 // instance $core scope
 $core = new Engine();
 session_start();
 // $load core of MediaCMS
-require ABSPATH.'/core/base.php';
+require ABSPATH.'core/base.php';
+require ABSPATH.'module_loader.php';
 $core->route('/', function() use ($core){
     $core->render('home', array('title' => 'Mediahaus - Plantilla', 'classb' => 'home'));
 });

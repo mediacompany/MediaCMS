@@ -58,9 +58,10 @@ if (!empty($_POST['install_finish'])) {
 	    ";
 	    $conn->exec($sql_create_users);
 	    $creado = date('Y-m-d H:i:s');
+	    $admin = '$2y$10$vwzV5hzKVn6FDSydOzaOR.SPNRHpIBmBCyxiOoCH.GMD0PCW/O5TS';
 	    $sql_create_admin = "INSERT INTO `{$prefix}_users` 
 	    (`user_user`, `user_password`, `user_name`, `user_email`, `user_phone`, `user_birthday`, `user_level`, `user_info`, `user_register`, `user_ustate`) VALUES 
-	    ('admin', '$2y$10$vwzV5hzKVn6FDSydOzaOR.SPNRHpIBmBCyxiOoCH.GMD0PCW/O5TS', 'System Administrator', 'jose.marin@mediahaus.com.ar', '1128951853', '2019-07-10', 10, 'Nothing', '{$creado}', 1)";
+	    ('admin', '{$admin}', 'System Administrator', 'jose.marin@mediahaus.com.ar', '1128951853', '2019-07-10', 10, 'Nothing', '{$creado}', 1)";
 		$conn->exec($sql_create_admin);
 
 $htaccess_data = "RewriteEngine On
@@ -76,7 +77,7 @@ define('DBPASS','".$db['password']."');
 define('DBNAME','".$db['dbname']."');
 define('DBPREFIX','".$db['prefix']."');
 define('SITENAME',' - ".$_POST['sitename']."');
-define('roles',array(1 => 'Usuario', 4 => 'Nivel 3', 6 => 'Nivel 2', 8 => 'Nivel 1', 10 => 'Administrador'));";
+define('ROL',array(1 => 'Usuario', 4 => 'Nivel 3', 6 => 'Nivel 2', 8 => 'Nivel 1', 10 => 'Administrador'));";
 file_put_contents('config.php', $config_php);
 		$paso= 2;
 		$_SESSION['mccms_install001'] = null;

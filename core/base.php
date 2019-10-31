@@ -1,7 +1,7 @@
 <?php
-require ABSPATH.'/helper.php';
+require ABSPATH.'core/helper.php';
 $core->route('/admin', function() use ($core){
-    $core->set('flight.views.path', ABSPATH.'/core/views');
+    $core->set('flight.views.path', ABSPATH.'core/views');
     if(empty($_SESSION['mcb_user'])){
          $core->render('login', 
             array('title' => 'Ingresar'.SITENAME,
@@ -21,7 +21,7 @@ $core->route('/admin', function() use ($core){
     );
 });
 $core->route('/admin/users', function() use ($core){
-    $core->set('flight.views.path', ABSPATH.'/core/views');
+    $core->set('flight.views.path', ABSPATH.'core/views');
     $core->checkAuthPermission(array(10));
     $core->render('users', 
         array('title' => 'Usuario'.SITENAME,
@@ -33,7 +33,7 @@ $core->route('/admin/users', function() use ($core){
 });
 // list respurce by id
 $core->route('GET /admin/user/@id', function($id) use ($core){
-    $core->set('flight.views.path', ABSPATH.'/core/views');
+    $core->set('flight.views.path', ABSPATH.'core/views');
     $core->checkAuthPermission(array(10));
     if ($id == 0) {
         $section_title = 'Nuevo Usuario';
@@ -101,9 +101,10 @@ $core->route('/admin/out', function() use ($core){
 
 $core->route('POST /admin/ajax', function() use ($core){
     $request = $core->request()->data;
+    $files = $core->request()->files;
     $action = $request->action;
     switch ( $action ) {
-        case 'sign-in':
+        case 'sign-in-admin':
                 $user = $core->get_row('users',"*","WHERE user_user = '{$request->login_user}'");
                 if(empty($user)){
                     $data = array( 'state' => 0,'action' => 'show-error','param' => 'Usuario Incorrecto 🤨' );
@@ -131,14 +132,18 @@ $core->route('POST /admin/ajax', function() use ($core){
                 $core->json($data);
             break;
         case 'delete':
+                $core->checkAuthPermission_ajax(array(8,9,10));
                 $condval =  explode(':', $request->sqlcondval);
                 $core->delete_on($request->sqltable,array($condval[1] => $condval[0]));
                 $data = array( 'state' => 0, 'action' => 'delete_item','param' => $request->domresp );
                 $core->json($data);
-                die();
             break;
         default:
-                $core->json(array('state' => 0,'action' => null,'param' => null));
+                if (function_exists($action)){
+                    $action($core);
+                }else{
+                    $core->json(array('error' => true,'state' => 0,'action' => 'function not defined','param' => null));
+                }
             break;
     }
 });

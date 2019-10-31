@@ -27,7 +27,7 @@
                 <label>Rol</label>
                 <div class="form-select">
                     <select name="user_level">
-                        <?php foreach ($roles as $key => $value) { ?>
+                        <?php foreach (ROL as $key => $value) { ?>
                             <option value="<?php echo $key; ?>" <?php selected($data->user_level,$key); ?>><?php echo $value; ?></option>
                         <?php } ?>
                     </select>
