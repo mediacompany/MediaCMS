@@ -1,4 +1,5 @@
 <?php
+$core->set('config_file',json_decode(file_get_contents(SITE.'config.json')));
 $core->set('flight.log_errors', true);
 $core->set('modules', array());
 $core->set('admin_js', array());
@@ -15,6 +16,68 @@ $core->register('db', 'PDO', array("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSE
 	    }
     }
 );
+
+require 'vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer;
+
+/**
+ * @param int $page = 1, 1-> front, 2-> user, 3->core
+ * @param bool $css = false , true si quiere imprimir css en etiquetas de insercion html
+ * @param bool $js = false, true si quiere imprimir js en etiquetas de insercion html
+ * @param bool $font = false, true si quiere imprimir fonts en etiquetas de insercion html
+ * @param bool $libraries = true, true si quiere incluir la impresion de librerias
+ * 
+ */
+$core->map('print_assets', function($page = 1,$css = false,$js = false,$fonts = false,$lib = true) use ($core){
+    function css_print($type = 'front',$print,$lib = false){
+        if($print){
+            global $core;
+            echo "<!-- CSS Files -->";
+            $config_file = $core->get('config_file');
+            foreach($config_file->assets->css->$type as $files){
+                echo "<link rel='stylesheet' href='".SITE.$config_file->assets_route->$type."css/".$files."' />";
+            }
+            if($lib){
+                foreach($config_file->assets->css->library as $files){
+                    echo "<link rel='stylesheet' href='".SITE.$config_file->assets_route->libraries."css/".$files."' />";
+                }
+            }
+        }
+    }
+    function js_print($type = 'front',$print,$lib = false){
+        if($print){
+            global $core;
+            echo "<!-- JS Files -->";
+            $config_file = $core->get('config_file');
+            foreach($config_file->assets->js->$type as $files){
+                echo "<script src='".SITE.$config_file->assets_route->$type."js/".$files."'></script>";
+            }
+            if($lib){
+                foreach($config_file->assets->js->library as $files){
+                    echo "<script src='".SITE.$config_file->assets_route->libraries."js/".$files."'></script>";
+                }
+            }
+        }
+    }
+    echo "<!-- Print Assets -->";
+    switch($page){
+        case 1: // print front files
+            css_print('front',$css,$lib);
+            js_print('front',$js,$lib);
+        break;
+        
+        case 2: // print user files
+            css_print('user',$css);
+            js_print('user',$js,$lib);
+        break;
+
+        case 3: // print admin files
+            css_print('admin',$css);
+            js_print('admin',$js,$lib);
+        break;
+    }
+}); 
+
 
 require ABSPATH.'core/db-manager.php';
 $core->map('checkAuthPermission',function($area = array()) use ($core){
@@ -164,6 +227,45 @@ $core->map('register_module',function($module_data = array()) use ($core){
     $modules = $core->get('modules');
     $modules[$module_data['order']] = $module_data;
     $core->set('modules',$modules);
+});
+
+$core->map('send_mail',function($body = "<h1>Escribania Biglieri</h1>",$subject = "Escribania Biglieri",$to = array(),$reply = array()) use ($core){
+    $mail = new PHPMailer();
+    try {
+        //server settings
+        $mail->isSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->Host = 'mail.mediacore.com.ar';
+        $mail->Port = 465;
+        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'enviador@mediacore.com.ar';
+        $mail->Password = 'HScHO}WE)(mE';
+        $mail->CharSet = 'UTF-8';
+
+        //Contents
+        $mail->Subject = $subject;
+        $mail->msgHTML($body);
+        $mail->AltBody = '';
+        $mail->Body = $body;
+        
+        // recipients
+        $mail->setFrom('enviador@mediacore.com.ar', 'Escribania Biglieri');
+        if(!empty($to)){
+            foreach($to as $mailto => $name){
+                $mail->addAddress($mailto,$name);
+            }
+        }
+        if(!empty($reply)){
+            $mail->addReplyTo(array_key_first($reply),$reply[array_key_first($reply)]);
+        }
+
+        // send mail
+        $mail->send();
+        echo "<script>console.log('mensaje enviado');</script>";
+    }catch (Exception $e){
+        echo "<script>console.log('el mensaje no se pudo enviar. Error: {$mail->ErrorInfo}');</script>";
+    }
 });
 
 $core->map('prettyDate',function($date){

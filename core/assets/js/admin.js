@@ -1,4 +1,7 @@
-jQuery(document).ready(function($){
+ /* Archivo generado automaticamente por MediaCMS */ 
+ /* Todos los derechos reservados por MediaHaus by MediaCo. */ 
+ /* Nombre del archivo: admin.js */
+ jQuery(document).ready(function($){
 	$('.sameh_trigger').sameheight()
 	$('.media-table-delete-item').click(function(e){
 		e.preventDefault()

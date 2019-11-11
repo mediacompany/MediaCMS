@@ -2,8 +2,6 @@
 
 $routes = $core->add_menu_page('Example',array('admin'=>'Main example'),array(10),'',0,array('subexample' => 'Sub Menus'),__DIR__);
 
-var_dump($routes);
-
 // if you need a custom table on DB you can create first
 /** 
  * To create tables automatic of your module you can use the function $core-add_table($param1,$param2);

@@ -78,6 +78,43 @@ if (!empty($_POST['install_finish'])) {
 		define('SITENAME',' - ".$_POST['sitename']."');
 		define('ROL',array(1 => 'Usuario', 4 => 'Nivel 3', 6 => 'Nivel 2', 8 => 'Nivel 1', 10 => 'Administrador'));";
 		file_put_contents('config.php', $config_php);
+		if(!file_exists(SITE.'config.json')){
+			$config_json = array(
+				'assets' => array(
+					"css" => array(
+						"library" => array(),
+						"front" => array("main.css"),
+						"user" => array("user.css"),
+						"admin" => array("admin.css")
+					),
+					"js" => array(
+						"library" => array(),
+						"front" => array("main.js"),
+						"user" => array("user.js"),
+						"admin" => array("admin.js")
+					),
+					"fonts" => array()
+				),
+				"assets_route" => array(
+					"libraries" => "assets/",
+					"front" => "assets/",
+					"user" => "assets/user/",
+					"admin" => "core/assets/"
+				),
+				"mail" => array(
+					"host" => "mail.mediacore.com.ar",
+					"port" => 465,
+					"username" => "enviador@mediacore.com.ar",
+					"password" => "HScHO}WE)(mE",
+					"from_name" => "MediaHaus",
+					"admin_mail" => array(
+						"mail" => "ramiro.macciuci@mediahaus.com.ar",
+						"name" => "Ramiro Macciuci"
+					)
+				)
+			);
+			file_put_contents('config.json',json_encode($config_json));
+		}
 		$paso= 2;
 		$_SESSION['mccms_install001'] = null;
 	}catch(PDOException $e){
