@@ -15,6 +15,7 @@ $core->register('db', 'PDO', array("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSE
 	    }
     }
 );
+
 require ABSPATH.'core/db-manager.php';
 $core->map('checkAuthPermission',function($area = array()) use ($core){
     if(empty($_SESSION['mcb_user'])){
@@ -56,11 +57,115 @@ $core->map('checkAuth',function($lvl) use ($core){
     }
 });
 */
+
+/**
+ * Funcion add_menu_page();
+ * Funcion para agregar modulos a media CMS
+ * @author Ramiro Macciuci - MediaHaus by MediaCo. 2019 - ramiro.macciuci@mediahaus.com.ar
+ * @version 1.0.0
+ * @copyright 2019 MediaHaus by MediaCo.
+ * @link https://www.mediahaus.com.ar
+ * @since Available since release 1.0.0
+ * 
+ * -- PARAMETROS --
+ * @param string (required) $page_title = El texto que se mostrará en las etiquetas de título de la página cuando se seleccione el menú.
+ * 
+ * @param array (required) $menu_title = como key el nombre del archivo principal, como value el nombre a mostrar en el menu
+ * 
+ * @param array  (optional) $capability = Niveles de autenticacion del usuario para mostrarle este modulo, si no se especifica se mostrara a todos los usuarios.
+ * @example $capability = Array(10,8,1) -> se les mostrara a los usuarios con nivel de autenticacion 10 8 y 1
+ * 
+ * @param string (invocable) (opcional) $function -> funcion para invocar en el momento que se carga el modulo.
+ * 
+ * @param int (position) $position -> numero de orden en el menu, default = 0
+ * 
+ * @param array $submenu (optional) -> submenu opcional para mostrar, como key nombre de la pagina a mostrar, como value, nombre a mostrar en el submenu
+ * 
+ * @param string $dir (required) -> es necesario declarar constante __DIR__
+ * 
+ * Esta funcion definira las rutas automaticamente para generar todas las vistas necesarias para el funcionamiento del modulo. Tanto de la vista principal como de las subpaginas.
+ * 
+ * @return array rutas definidas automaticamente por la funcion, only for developers
+ * 
+ * @example $routes = $core->add_menu_page('Example',array('admin'=>'Main example'),array(10),'',0,array('subexample' => 'Sub Menus'),__DIR__);
+ * 
+ *  */
+ $core->map('add_menu_page',function($page_title,$menu_title = array(),$capability = array(10,8,6,1),$function = "",$position = 0, $submenu = array(), $dir = __DIR__) use ($core){
+    // invocamos la funcion especificada
+    if(!empty($function)){
+        $function();
+    }
+    if(empty($page_title) || !is_array($menu_title) || empty($menu_title) || empty($capability)){
+        die("Error en la sintaxis de la funcion");
+    }
+    $data = array(
+        'module_title' => $page_title,
+        'menu_title' => $menu_title[array_key_first($menu_title)],
+        'module_url' => array_key_first($menu_title),
+        'capability' => $capability,
+        'submenu' => $submenu,
+        'dir' => $dir
+    );
+    $routes = array('main' => 'GET | '.SITE.'admin/'.$data['module_url']);
+    $core->route('GET /admin/'.$data['module_url'], function() use ($core,$data){
+        $core->checkAuthPermission($data['capability']);
+        $core->render_admin(
+            array(
+                'title' => $data['module_title'],
+                'classb' => 'module'.$data['module_url'],
+                'section' => 'module'.$data['module_url'],
+                'section_title' => $data['menu_title'],
+                'module_file' => $data['dir'].'/'.$data['module_url'].'.php',
+                'data' => (object) array('ID' => 0, 'foo' => 'string'),
+                'foo' => 'bar'
+            )
+        );
+    });
+
+    if(!empty($submenu)){
+        foreach($submenu as $url => $submenu){
+            $temporaldata = array(
+                'url' => $url,
+                'name' => $submenu
+            );
+            $routes[$submenu] = 'GET | '.SITE.'admin/'.$data['module_url'].'/'.$url;
+            $core->route('GET /admin/'.$data['module_url'].'/'.$url, function() use ($core,$data,$temporaldata){
+                $core->checkAuthPermission($data['capability']);
+                $core->render_admin(
+                    array(
+                        'title' => $temporaldata['name'],
+                        'classb' => 'module'.$data['module_url'],
+                        'section' => 'module'.$data['module_url'],
+                        'section_title' => $data['menu_title'],
+                        'module_file' => $data['dir'].'/'.$temporaldata['url'].'.php',
+                        'data' => (object) array('ID' => 0, 'foo' => 'string'),
+                        'foo' => 'bar'
+                    )
+                );
+            });
+            $temporaldata = "";
+        }
+    }
+    $modules = $core->get('modules');
+    if(!empty($position) && $position != 0){
+        if(array_key_exists($position,$modules)){
+            die("La posicion especificada, ya existe registrada en el CMS");
+        }
+        $modules[$position] = $data;
+    }else{
+        $modules[] = $data;
+    }
+    $core->set('modules',$modules);
+    return $routes;
+ });
+
+
 $core->map('register_module',function($module_data = array()) use ($core){
     $modules = $core->get('modules');
     $modules[$module_data['order']] = $module_data;
     $core->set('modules',$modules);
 });
+
 $core->map('prettyDate',function($date){
     $date_source = explode('-', date ( 'Y-n-j' , strtotime($date)));
     $meses = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -143,6 +248,7 @@ $core->map('notify_helper',function(){
         $_SESSION['system_notify'] = array();
     }
 });
+
 $core->map('notify_helper_add',function($notify){
     if (empty($_SESSION['system_notify'])) {
         $_SESSION['system_notify'] = array();

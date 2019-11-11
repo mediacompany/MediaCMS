@@ -1,5 +1,6 @@
 <?php
 require ABSPATH.'core/helper.php';
+
 $core->route('/admin', function() use ($core){
     $core->set('flight.views.path', ABSPATH.'core/views');
     if(empty($_SESSION['mcb_user'])){
@@ -20,6 +21,7 @@ $core->route('/admin', function() use ($core){
         )
     );
 });
+
 $core->route('/admin/users', function() use ($core){
     $core->set('flight.views.path', ABSPATH.'core/views');
     $core->checkAuthPermission(array(10));
@@ -31,6 +33,7 @@ $core->route('/admin/users', function() use ($core){
         )
     );
 });
+
 // list respurce by id
 $core->route('GET /admin/user/@id', function($id) use ($core){
     $core->set('flight.views.path', ABSPATH.'core/views');
@@ -53,6 +56,7 @@ $core->route('GET /admin/user/@id', function($id) use ($core){
         )
     );
 });
+
 $core->route('POST /admin/user/@id', function($id) use ($core){
     $core->checkAuthPermission(array(10));
     $request = $core->request()->data;

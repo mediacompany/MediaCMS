@@ -4,6 +4,9 @@ $db = $core->db();
 $prefix = DBPREFIX;
 $sidebar_state = (isset($_COOKIE["sidebar"]) && $_COOKIE["sidebar"] == 1 )?  'sideClose' : '' ;
 $current_url = ltrim($core->request()->url, '/');
+
+$modules = $core->get('modules');
+ksort($modules);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,27 +42,34 @@ $current_url = ltrim($core->request()->url, '/');
             <a href="<?php echo SITE; ?>admin"><i class="fa fa-circle-thin" aria-hidden="true"></i> Inicio</a>
         </li>
         <?php
-        $modules = $core->get('modules');
-        ksort($modules);
-          foreach ($modules as $key => $module) { ?>
-              <li <?php current_page(rtrim($current_url, '/'), $module['admin-url']); ?>>
-                <a href="<?php echo SITE.'admin/'.$module['admin-url']; ?>/">
-                <i class="fa fa-circle-thin" aria-hidden="true"></i> <?php echo $module['name']; ?></a>
+        foreach ($modules as $value) {
+            $permiso = false;
+            foreach ($value['capability'] as $permisos) {
+                if (!$permiso) {
+                    $permiso = $_SESSION['mcb_user']['level'] == $permisos ? true : false;
+                }
+            }
+            if ($permiso) { ?>
+            <li <?php current_page($section,'module'.$value['module_url']); ?>>
+                <a href="<?php echo SITE.'admin/'.$value['module_url']; ?>"><i class="fa fa-circle-thin" aria-hidden="true"></i><?php echo $value['menu_title']; ?></a>
                 <?php
-                  if (!empty($module['submenu'])) {
-                    echo "<ul class='side_sub_menu'>";
-                    foreach ($module['submenu'] as $key => $value) { ?>
-                      <li>
-                        <a href="<?php echo SITE.'admin/'.$module['admin-url'].'/'.$key; ?>/"><?php echo $value; ?></a>
-                      </li>
-                    <?php }
-                    echo "</ul>";
-                  }
+                    if(!empty($value['submenu'])):
                 ?>
-              </li>
-            <?php
-          }
-        ?>
+                    <ul class="side_sub_menu">
+                        <?php
+                        foreach ($value['submenu'] as $url => $submenu) {
+                        ?>
+                            <li><a href="<?php echo SITE.'admin/'.$value['module_url'].'/'.$url; ?>"><?php echo $submenu; ?></a></li>
+                        <?php } ?>
+                    </ul>
+                    <?php
+                    endif; ?>
+            </li>
+          <?php
+            }
+        }
+          ?>
+
         <li <?php current_page($section,'users'); ?>>
             <a href="<?php echo SITE; ?>admin/users"><i class="fa fa-circle-thin" aria-hidden="true"></i> Usuarios</a>
         </li>

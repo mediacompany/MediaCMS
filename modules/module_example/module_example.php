@@ -1,19 +1,8 @@
 <?php
-/**
- * All module need the file with same name of the folder, need unique can use - and _ 
- * him require a defaults params on array in to register_module function.
- *
- * @since 1.0.0
- *
- * @param name the name on admin menu
- * @param url: the url on front
- * @param admin-url: the url on admin side
- * @param order: the orden on menu see "Menu orders" on documentation of backend
- * @param (optional) submenu = An array for simples custom menu, of main menu of module, like category or any type of simple data,
- *  the model is key is the url and value is the Name of menu
- * @return string html attribute or empty string
- */
-$core->register_module(array('name' => 'Example','url' => 'example','admin-url' => 'example', 'order' => 0,'submenu' => array('subexample' => 'Sub Example')));
+
+$routes = $core->add_menu_page('Example',array('admin'=>'Main example'),array(10),'',0,array('subexample' => 'Sub Menus'),__DIR__);
+
+var_dump($routes);
 
 // if you need a custom table on DB you can create first
 /** 
@@ -31,7 +20,6 @@ $core->add_table('example',"
 /**
  * You can map any functions to use on front or backend of the CMS
  */
-
 $core->map('get_example',function($ID) use ($core){
     $db = $core->db();
     $prefix = DBPREFIX;
@@ -50,22 +38,6 @@ $core->map('get_examples',function($order = 'DESC') use ($core){
     return $get_examples->fetchAll();
 });
 
-// Make admin screen need full URL you want and need be unique
-$core->route('GET /admin/example/', function() use ($core){
-    // can sent permission to screen
-    $core->checkAuthPermission(array(8,10));
-    // need admin render to include your own php file that display ur content 
-    $core->render_admin( 
-        array('title' => 'Noticias - MediaCore', // required
-          'classb' => 'novedades_admin', // required
-          'section' => 'novedades_admin', // required
-          'section_title' => 'Section Example title', // required
-          'data' => (object) array('ID' => 0, 'foo' => 'string'), // required your function or prev SQL 
-          'module_file' => __DIR__.'/admin.php', // load  specific module - required
-          'foo' => 'bar' // you can pass any values you need
-        )
-    );
-});
 
 // Make admin screen need full URL you want and need be unique
 $core->route('POST /admin/example/', function() use ($core){
@@ -77,19 +49,3 @@ $core->route('POST /admin/example/', function() use ($core){
     $core->redirect('/admin/example');
 });
 
-// Make admin screen need full URL you want and need be unique
-$core->route('GET /admin/example/subexample', function() use ($core){
-    // can sent permission to screen
-    $core->checkAuthPermission(array(8,10));
-    // need admin render to include your own php file that display ur content 
-    $core->render_admin( 
-        array('title' => 'Noticias - MediaCore', // required
-          'classb' => 'novedades_admin', // required
-          'section' => 'novedades_admin', // required
-          'section_title' => 'Sub Section Example title', // required
-          'data' => (object) array('ID' => 1, 'foo' => 'string'), // required your function or prev SQL 
-          'module_file' => __DIR__.'/admin.php', // load  specific module - required
-          'foo' => 'bar' // you can pass any values you need
-        )
-    );
-});
