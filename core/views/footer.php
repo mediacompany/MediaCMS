@@ -38,14 +38,10 @@
         </div>
     </div>
 </div>
-<script src="<?php echo SITE; ?>core/assets/js/jquery.min.js"></script>
-<script src="<?php echo SITE; ?>core/assets/js/bootstrap.min.js"></script>
-<script src="<?php echo SITE; ?>core/assets/js/plugins.js"></script>
-<script src="<?php echo SITE; ?>core/assets/js/datepicker.min.js"></script>
-<script src="<?php echo SITE; ?>core/assets/js/datepicker.es.min.js"></script>
-<script src="<?php echo SITE; ?>core/assets/js/multiple-select.js"></script>
-<script src="<?php echo SITE; ?>core/assets/js/main.js"></script>
-<?php $core->footer(); ?>
+
+<?php
+    $core->print_assets(3,false,true,true);
+?>
 
 <?php //include('media_manager.php'); ?>
 <script type="text/javascript">

@@ -24,41 +24,12 @@ use PHPMailer\PHPMailer\PHPMailer;
  * @param int $page = 1, 1-> front, 2-> user, 3->core
  * @param bool $css = false , true si quiere imprimir css en etiquetas de insercion html
  * @param bool $js = false, true si quiere imprimir js en etiquetas de insercion html
- * @param bool $font = false, true si quiere imprimir fonts en etiquetas de insercion html
  * @param bool $libraries = true, true si quiere incluir la impresion de librerias
  * 
  */
-$core->map('print_assets', function($page = 1,$css = false,$js = false,$fonts = false,$lib = true) use ($core){
-    function css_print($type = 'front',$print,$lib = false){
-        if($print){
-            global $core;
-            echo "<!-- CSS Files -->";
-            $config_file = $core->get('config_file');
-            foreach($config_file->assets->css->$type as $files){
-                echo "<link rel='stylesheet' href='".SITE.$config_file->assets_route->$type."css/".$files."' />";
-            }
-            if($lib){
-                foreach($config_file->assets->css->library as $files){
-                    echo "<link rel='stylesheet' href='".SITE.$config_file->assets_route->libraries."css/".$files."' />";
-                }
-            }
-        }
-    }
-    function js_print($type = 'front',$print,$lib = false){
-        if($print){
-            global $core;
-            echo "<!-- JS Files -->";
-            $config_file = $core->get('config_file');
-            foreach($config_file->assets->js->$type as $files){
-                echo "<script src='".SITE.$config_file->assets_route->$type."js/".$files."'></script>";
-            }
-            if($lib){
-                foreach($config_file->assets->js->library as $files){
-                    echo "<script src='".SITE.$config_file->assets_route->libraries."js/".$files."'></script>";
-                }
-            }
-        }
-    }
+$core->map('print_assets', function($page = 1,$css = false,$js = false,$lib = false) use ($core){
+
+
     echo "<!-- Print Assets -->";
     switch($page){
         case 1: // print front files
@@ -67,18 +38,48 @@ $core->map('print_assets', function($page = 1,$css = false,$js = false,$fonts = 
         break;
         
         case 2: // print user files
-            css_print('user',$css);
+            css_print('user',$css,$lib);
             js_print('user',$js,$lib);
         break;
 
         case 3: // print admin files
-            css_print('admin',$css);
+            css_print('admin',$css,$lib);
             js_print('admin',$js,$lib);
         break;
     }
 }); 
+function css_print($type,$print,$lib){
+    global $core;
+    $config_file = $core->get('config_file');
+    if($print){
+        echo "<!-- CSS Files -->";
+        if($lib){
+            foreach($config_file->assets->css->library as $files){
+                echo "<link rel='stylesheet' href='".SITE.$config_file->assets_route->libraries."css/".$files."' />";
+            }
+        }
+        foreach($config_file->assets->css->$type as $files){
+            echo "<link rel='stylesheet' href='".SITE.$config_file->assets_route->$type."css/".$files."' />";
+        }
 
+    }
+}
 
+function js_print($type,$print,$lib){
+    global $core;
+    $config_file = $core->get('config_file');
+    if($print){
+        echo "<!-- JS Files -->";
+        if($lib){
+            foreach($config_file->assets->js->library as $files){
+                echo "<script src='".SITE.$config_file->assets_route->libraries."js/".$files."'></script>";
+            }
+        }
+        foreach($config_file->assets->js->$type as $files){
+            echo "<script src='".SITE.$config_file->assets_route->$type."js/".$files."'></script>";
+        }
+    }
+}
 require ABSPATH.'core/db-manager.php';
 $core->map('checkAuthPermission',function($area = array()) use ($core){
     if(empty($_SESSION['mcb_user'])){

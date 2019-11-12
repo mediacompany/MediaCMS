@@ -4,65 +4,65 @@
  /*v0.2*/
 @font-face {
     font-family: 'tt_commons_boldbold';
-    src: url('fonts/ttcommons-bold-webfont.eot');
-    src: url('fonts/ttcommons-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/ttcommons-bold-webfont.woff2') format('woff2'),
-         url('fonts/ttcommons-bold-webfont.woff') format('woff'),
-         url('fonts/ttcommons-bold-webfont.ttf') format('truetype'),
-         url('fonts/ttcommons-bold-webfont.svg#tt_commons_boldbold') format('svg');
+    src: url('../fonts/ttcommons-bold-webfont.eot');
+    src: url('../fonts/ttcommons-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ttcommons-bold-webfont.woff2') format('woff2'),
+         url('../fonts/ttcommons-bold-webfont.woff') format('woff'),
+         url('../fonts/ttcommons-bold-webfont.ttf') format('truetype'),
+         url('../fonts/ttcommons-bold-webfont.svg#tt_commons_boldbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'tt_commonsdemibold';
-    src: url('fonts/ttcommons-demibold-webfont.eot');
-    src: url('fonts/ttcommons-demibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/ttcommons-demibold-webfont.woff2') format('woff2'),
-         url('fonts/ttcommons-demibold-webfont.woff') format('woff'),
-         url('fonts/ttcommons-demibold-webfont.ttf') format('truetype'),
-         url('fonts/ttcommons-demibold-webfont.svg#tt_commonsdemibold') format('svg');
+    src: url('../fonts/ttcommons-demibold-webfont.eot');
+    src: url('../fonts/ttcommons-demibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ttcommons-demibold-webfont.woff2') format('woff2'),
+         url('../fonts/ttcommons-demibold-webfont.woff') format('woff'),
+         url('../fonts/ttcommons-demibold-webfont.ttf') format('truetype'),
+         url('../fonts/ttcommons-demibold-webfont.svg#tt_commonsdemibold') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'tt_commonslight';
-    src: url('fonts/ttcommons-light-webfont.eot');
-    src: url('fonts/ttcommons-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/ttcommons-light-webfont.woff2') format('woff2'),
-         url('fonts/ttcommons-light-webfont.woff') format('woff'),
-         url('fonts/ttcommons-light-webfont.ttf') format('truetype'),
-         url('fonts/ttcommons-light-webfont.svg#tt_commonslight') format('svg');
+    src: url('../fonts/ttcommons-light-webfont.eot');
+    src: url('../fonts/ttcommons-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ttcommons-light-webfont.woff2') format('woff2'),
+         url('../fonts/ttcommons-light-webfont.woff') format('woff'),
+         url('../fonts/ttcommons-light-webfont.ttf') format('truetype'),
+         url('../fonts/ttcommons-light-webfont.svg#tt_commonslight') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'tt_commonsregular';
-    src: url('fonts/ttcommons-regular-webfont.eot');
-    src: url('fonts/ttcommons-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/ttcommons-regular-webfont.woff2') format('woff2'),
-         url('fonts/ttcommons-regular-webfont.woff') format('woff'),
-         url('fonts/ttcommons-regular-webfont.ttf') format('truetype'),
-         url('fonts/ttcommons-regular-webfont.svg#tt_commonsregular') format('svg');
+    src: url('../fonts/ttcommons-regular-webfont.eot');
+    src: url('../fonts/ttcommons-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ttcommons-regular-webfont.woff2') format('woff2'),
+         url('../fonts/ttcommons-regular-webfont.woff') format('woff'),
+         url('../fonts/ttcommons-regular-webfont.ttf') format('truetype'),
+         url('../fonts/ttcommons-regular-webfont.svg#tt_commonsregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon/icomoon.eot?5u71jp');
-  src:  url('fonts/icomoon/icomoon.eot?5u71jp#iefix') format('embedded-opentype'),
-    url('fonts/icomoon/icomoon.ttf?5u71jp') format('truetype'),
-    url('fonts/icomoon/icomoon.woff?5u71jp') format('woff'),
-    url('fonts/icomoon/icomoon.svg?5u71jp#icomoon') format('svg');
+  src:  url('../fonts/icomoon/icomoon.eot?5u71jp');
+  src:  url('../fonts/icomoon/icomoon.eot?5u71jp#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/icomoon.ttf?5u71jp') format('truetype'),
+    url('../fonts/icomoon/icomoon.woff?5u71jp') format('woff'),
+    url('../fonts/icomoon/icomoon.svg?5u71jp#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
+  /* use !important to prevent issues with browser extensions that change ../fonts */
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;

@@ -15,17 +15,15 @@ ksort($modules);
   <title><?php echo $title; ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-  <link rel="stylesheet" href="<?php echo SITE; ?>core/assets/plugins/bootstrap.min.css">
-  <link rel="stylesheet" href="<?php echo SITE; ?>core/assets/plugins/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo SITE; ?>core/assets/plugins/datepicker.min.css">
-  <link rel="stylesheet" href="<?php echo SITE; ?>core/assets/plugins/multiple-select.css">
-  <link rel="stylesheet" href="<?php echo SITE; ?>core/assets/main.css">
   <link rel="shortcut icon" href="<?php echo SITE; ?>core/assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
   <link rel="icon" href="<?php echo SITE; ?>core/assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
   <link rel="apple-touch-icon" href="<?php echo SITE; ?>core/assets/img/favicon.png" />
   <link rel="apple-touch-icon-precomposed" href="<?php echo SITE; ?>core/assets/img/favicon.png" />
-  <?php $core->header(); ?>
+
+  <?php
+    $core->print_assets(3,true,false,true);
+  ?>
+
   <script>
   	     var base_url = '<?php echo SITE; ?>';
   </script>
