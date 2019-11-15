@@ -113,7 +113,7 @@ if (!empty($_POST['install_finish'])) {
 					)
 				)
 			);
-			file_put_contents('config.json',json_encode($config_json));
+			file_put_contents('config.json',json_encode($config_json, JSON_PRETTY_PRINT));
 		}
 		$paso= 2;
 		$_SESSION['mccms_install001'] = null;

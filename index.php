@@ -29,7 +29,7 @@ session_start();
 require ABSPATH.'core/base.php';
 require ABSPATH.'module_loader.php';
 
-
+// verificacion de config.json
 if(!file_exists('config.json')){
    die("No se encuentra el archivo config.json y es fundamental para el funcionamiento de Media CMS. Por favor, lea la documentacion, y en caso de que lo haya eliminado vuelva a crearlo respetando la sintaxis.");
 }else{
