@@ -64,7 +64,6 @@ function css_print($type,$print,$lib){
 
     }
 }
-
 function js_print($type,$print,$lib){
     global $core;
     $config_file = $core->get('config_file');
@@ -80,6 +79,7 @@ function js_print($type,$print,$lib){
         }
     }
 }
+
 require ABSPATH.'core/db-manager.php';
 $core->map('checkAuthPermission',function($area = array()) use ($core){
     if(empty($_SESSION['mcb_user'])){
@@ -121,6 +121,7 @@ $core->map('checkAuth',function($lvl) use ($core){
     }
 });
 */
+
 
 /**
  * Funcion add_menu_page();
@@ -223,14 +224,13 @@ $core->map('checkAuth',function($lvl) use ($core){
     return $routes;
  });
 
-
 $core->map('register_module',function($module_data = array()) use ($core){
     $modules = $core->get('modules');
     $modules[$module_data['order']] = $module_data;
     $core->set('modules',$modules);
 });
 
-$core->map('send_mail',function($body = "<h1>Escribania Biglieri</h1>",$subject = "Escribania Biglieri",$to = array(),$reply = array()) use ($core){
+$core->map('send_mail',function($body = "<h1>Media CMS</h1>",$subject = "Media CMS",$to = array(),$reply = array()) use ($core){
     $mail = new PHPMailer();
     try {
         //server settings
@@ -251,7 +251,7 @@ $core->map('send_mail',function($body = "<h1>Escribania Biglieri</h1>",$subject 
         $mail->Body = $body;
         
         // recipients
-        $mail->setFrom('enviador@mediacore.com.ar', 'Escribania Biglieri');
+        $mail->setFrom('enviador@mediacore.com.ar', 'Media CMS');
         if(!empty($to)){
             foreach($to as $mailto => $name){
                 $mail->addAddress($mailto,$name);
@@ -267,6 +267,31 @@ $core->map('send_mail',function($body = "<h1>Escribania Biglieri</h1>",$subject 
     }catch (Exception $e){
         echo "<script>console.log('el mensaje no se pudo enviar. Error: {$mail->ErrorInfo}');</script>";
     }
+});
+  
+/**
+     * Funcion para solicitar cambio de contraseña, ingresamos el mail, y generara una nueva contraseña
+     * @param string $mail = email de cuenta para generar nueva contraseña
+     */
+$core->map('renovate_password',function($mail) use ($core){
+    if(!$core->get_row('users','*',"WHERE user_email = '{$mail}'")){
+        die('usuario inexistente');
+    }
+    // generamos la nueva contraseña
+    $new_password = substr(md5(microtime()),0,10);
+
+    // almacenamos la nueva contraseña en la base de datos
+    $data = array(
+        "user_password" => password_hash($new_password,PASSWORD_DEFAULT)
+    );
+    $core->update_on('users',$data,array("user_email" => "'$mail'"));
+
+    // enviamos un mail con la nueva contraseña
+    $subject_to = "Contraseña actualizada en MediaCMS";
+    $body_to = "<h1>Se ha actualizado tu contraseña en media CMS</h1> \n
+                <h4 style='color:#000;'>Nueva contraseña <strong style='color:#f00;'>$new_password</strong></h4>
+                <a href='".SITE."admin'>Ingresa presionando aqui</a>";
+    $core->send_mail($body_to,$subject_to,array($mail => "Usuario"));
 });
 
 $core->map('prettyDate',function($date){

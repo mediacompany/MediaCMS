@@ -67,7 +67,6 @@ if(!file_exists('config.json')){
 
     }
 }
-
 // Main route
 $core->route('/', function() use ($core){
     $core->render('home', array('title' => 'Mediahaus - Plantilla', 'classb' => 'home'));
