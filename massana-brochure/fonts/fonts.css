@@ -1,0 +1,301 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icons/icomoon.eot?q9qopo');
+  src:  url('icons/icomoon.eot?q9qopo#iefix') format('embedded-opentype'),
+    url('icons/icomoon.ttf?q9qopo') format('truetype'),
+    url('icons/icomoon.woff?q9qopo') format('woff'),
+    url('icons/icomoon.svg?q9qopo#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Harmonia Pro';
+  src: url('fonts/HarmoniaSansProCyr-SemiBd.woff2') format('woff2'),
+      url('fonts/HarmoniaSansProCyr-SemiBd.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Harmonia Std';
+  src: url('fonts/HarmoniaSansStd-Regular.woff2') format('woff2'),
+      url('fonts/HarmoniaSansStd-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-massana-1 .path1:before {
+  content: "\e900";
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path2:before {
+  content: "\e901";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path3:before {
+  content: "\e902";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path4:before {
+  content: "\e903";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path5:before {
+  content: "\e904";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path6:before {
+  content: "\e905";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path7:before {
+  content: "\e906";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path8:before {
+  content: "\e907";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path9:before {
+  content: "\e908";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path10:before {
+  content: "\e909";
+  margin-left: -3.2490234375em;
+  color: rgb(203, 203, 203);
+}
+.icon-massana-1 .path11:before {
+  content: "\e90a";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path12:before {
+  content: "\e90b";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path13:before {
+  content: "\e90c";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path14:before {
+  content: "\e90d";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path15:before {
+  content: "\e90e";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path16:before {
+  content: "\e90f";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path17:before {
+  content: "\e910";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path18:before {
+  content: "\e911";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path19:before {
+  content: "\e912";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path20:before {
+  content: "\e913";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path21:before {
+  content: "\e914";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-1 .path22:before {
+  content: "\e915";
+  margin-left: -3.2490234375em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-2:before {
+  content: "\e916";
+  color: #ddd;
+}
+.icon-massana-3:before {
+  content: "\e917";
+  color: #d6d6d6;
+}
+.icon-massana-4:before {
+  content: "\e918";
+}
+.icon-massana-5:before {
+  content: "\e919";
+  color: #cfcfcf;
+}
+.icon-massana-6:before {
+  content: "\e91a";
+}
+.icon-massana-7 .path1:before {
+  content: "\e91b";
+  color: rgb(205, 177, 166);
+}
+.icon-massana-7 .path2:before {
+  content: "\e91c";
+  margin-left: -1.0478515625em;
+  color: rgb(137, 71, 42);
+}
+.icon-massana-8 .path1:before {
+  content: "\e91d";
+  color: rgb(35, 31, 32);
+}
+.icon-massana-8 .path2:before {
+  content: "\e91e";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path3:before {
+  content: "\e91f";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path4:before {
+  content: "\e920";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path5:before {
+  content: "\e921";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path6:before {
+  content: "\e922";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path7:before {
+  content: "\e923";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path8:before {
+  content: "\e924";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path9:before {
+  content: "\e925";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path10:before {
+  content: "\e926";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path11:before {
+  content: "\e927";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path12:before {
+  content: "\e928";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path13:before {
+  content: "\e929";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path14:before {
+  content: "\e92a";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path15:before {
+  content: "\e92b";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path16:before {
+  content: "\e92c";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path17:before {
+  content: "\e92d";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path18:before {
+  content: "\e92e";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path19:before {
+  content: "\e92f";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path20:before {
+  content: "\e930";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path21:before {
+  content: "\e931";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path22:before {
+  content: "\e932";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-8 .path23:before {
+  content: "\e933";
+  margin-left: -1.0478515625em;
+  color: rgb(221, 221, 221);
+}
+.icon-massana-9 .path1:before {
+  content: "\e934";
+  color: rgb(35, 31, 32);
+}
+.icon-massana-9 .path2:before {
+  content: "\e935";
+  margin-left: -0.90625em;
+  color: rgb(221, 221, 221);
+}

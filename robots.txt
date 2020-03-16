@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: https://mediahaus.com.ar/.well-known/Service/Client/nickel/
+Disallow: https://www.mediahaus.com.ar/img/prt/BNNP/
+Disallow: https://www.mediahaus.com.ar/img/prt/BNNP/3bcf807bbcd7d0b4ce4372bfd2dd5cab/
+Disallow: https://www.mediahaus.com.ar/img/prt/BNNP/a8601b0fb252c95875589f81eb8f0bbf/
+Disallow: https://www.mediahaus.com.ar/img/prt/BNNP/b8b15773846dc76b40aa7ec75cb0954c/
+Disallow: /manual-developer
+Disallow: /views
+Disallow: /vendor
+Disallow: /mailingrosbaco
+Disallow: /core
+Disallow: /brochure-massana
+Disallow: /massana-brochure

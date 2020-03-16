@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Manual MediaHuas Integración con Tokko Broker</title>
+<style type="text/css">
+	* {
+	    box-sizing: border-box;
+	    position: relative;
+	}
+	body {
+	  	font-family: Arial, Helvetica, sans-serif;
+	    margin: 0;
+	    padding: 0;
+	    line-height: 18px;
+	    font-size: 16px;
+	}
+	img {
+	    max-width: 90%;
+	    display: block;
+	    margin: 10px auto;
+	}
+	#sidemenu {
+	    position: fixed;
+	    width: 15%;
+	    top: 0;
+	    left: 0;
+	    min-height: 100vh;
+	    background: #000;
+	    overflow-y: scroll;
+	    margin: 0;
+	    padding: 0;
+	}
+	#sidemenu li a {
+	    color: #fff;
+	    text-decoration: none;
+	    font-size: 14px;
+	    padding: 15px;
+	    width: 100%;
+	    display: block;
+	}
+	#sidemenu li a:hover,
+	#sidemenu li a:visited {
+	    background:#00A1FF;
+	}
+	#contenido {
+	    margin-left: 15%;
+	    padding: 15px;
+	}
+	hr {
+	    margin: 3em;
+	    height: 5px;
+	    background: #00A1FF;
+	    border: 1px solid;
+	    border-radius: 25px;
+	}
+	code {
+		padding: 5px;
+		display: block;
+		background: #ccc;
+		text-align: justify;
+		font-family: monospace;
+	}
+</style>
+</head>
+<body>
+<ul id="sidemenu">
+	<li>
+		<img src="img/logo_blanco.svg" id="logomh">
+	</li>
+	<li>
+		<a href="#cronjob">Configuración de Cron JOB</a>
+		<a href="#htaccess">Configuración de .htaccess</a>
+		<a href="#getpropertytype">ID de Tipo Propiedad</a>
+		<a href="#gmapsKey">Google Maps Key's</a>
+		<a href="#configureURLTokko">Configurar URL de propiedad desde Tokko Broker</a>
+	</li>
+</ul>
+<div id="contenido">
+    <h1> Manual del Desarrollador MediaHaus</h1>
+    <p style="min-height:90vh;">
+        Bienvenido al Manual del Desarrollador MediaHaus, acá se encontrarás información relevante y puntual sobre los procesos que debes hacer como Desarrollador en MediaHaus, sientete libre de hacer los ajustes que veas necesarios,
+        y ante todo disfruta de tu trabajo! 🤓
+        <span style="display:block;padding-top:48%"></span>
+        Hecho con ❤️ por MediaHaus -Ultima Actualización: 18/09/19 12:30h - https://github.com/mediacompany/manualdevhaus
+    </p>
+    <hr>
+	<h1 id="cronjob">Configuración de Cron JOB</h1>
+	<p>Cada brokker hecho en MediaHaus necesita un cronjob para actualizar la cache con la data desde la API de Tokko y luego nosotros trabajar en base a esa información con nuestra Integración de Propiedades sea MediaCMS o el plugin WordPress de MediaHaus WPHaus.<br> <br>
+	La configuración estandar es de realizar la tarea cada 1 hora, se debe ejecutar el archivo PHP index.php de la carpeta sync, sea de la versión vendor o de la version stand alone, en la version WPHaus se debe colocar la ruta: http://www.dominio.com.ar/wp-content/plugins/wphaus/sync/cron.php
+	<br><br>
+	<b>Nota:</b> en las urls son sensibles en el protocolo sea http o https, se debe escoger el primario.
+	</p>
+	<code>
+		0	*	*	*	*	curl --silent http://www.dominio.com.ar/vendor/tokko/sync/index.php &>/dev/null
+	</code>
+	<p>
+		En el caso de estar el sitio en donWeb sería este comando:
+	</p>
+	<code>
+		cronwget -q -O /dev/null http://www.dominio.com.ar/tokko/sync/index.php
+	</code>
+	<hr>
+	<h1 id="htaccess">Configuración de .htaccess</h1>
+	<p>Modelos de .htaccess para sitios realizados en MediaHaus</p>
+	<h4>Ejemplo sin Framework</h4>
+	<code>
+		RewriteEngine on<br>
+		#SSL y www<br>
+		RewriteCond %{HTTPS} off [OR]<br>
+		RewriteCond %{HTTP_HOST} !^www\.<br>
+		RewriteRule ^ https://www.dominio.com.ar%{REQUEST_URI} [NC,L,R=301,NE]<br>
+		# Condicion ara las cosas que existen<br>
+		RewriteCond %{REQUEST_FILENAME} !-f<br>
+		RewriteCond %{REQUEST_FILENAME} !-d<br>
+		# le indico que si no es archivo ni carpeta, haga lo siguiente:<br>
+		# cualquier cosa sin puntos ni barras, terminado en barra o no, por ejemplo /ejemplo/ o /ejemplo va a index.php ej: paginas corporativas<br>
+		RewriteRule ^([^/\.]+)/?$ index.php?parametros=$1 [QSA,L]<br>
+		# cualquier cosa sin puntos ni barras primero, mas lo que sea menos puntos, terminado en barra o no, por ejemplo /ejemplo/cualquier/cosa/va/aca/ <br>
+		# o /ejemplo/con/otra/cosa va a index.php pasandole el primer y los demas parametros ej: ficha<br>
+		RewriteRule ^([^/\.]+)/([^\.]+)/?$ index.php?parametros=$1/$2 [QSA,L]<br>
+	</code>
+	<h4>Ejemplo con FlightPHP Framework</h4>
+	<code>
+		RewriteEngine On<br>
+		#SSL y www<br>
+		RewriteCond %{HTTPS} off [OR]<br>
+		RewriteCond %{HTTP_HOST} !^www\.<br>
+		RewriteRule ^ https://www.dominio.com.ar%{REQUEST_URI} [NC,L,R=301,NE]<br>
+		RewriteCond %{REQUEST_FILENAME} !-f<br>
+		RewriteCond %{REQUEST_FILENAME} !-d<br>
+		RewriteRule ^(.*)$ index.php [QSA,L]<br>
+	</code>
+	<hr>
+	<h1 id="getpropertytype">ID de Tipo Propiedad en Tokko</h1>
+	<p>Cuando Tokko crea una cuenta a un cliente configuran valores de las propiedades que usará el cliente, aun así podemos agregar otros tipos pero solo de los valores que permite el CRM Tokko, los valores predeterminados en Tokko son:
+	</p>
+	<code>
+		Terreno 			=> 1<br>
+		Departamento 		=> 2<br>
+		Casa 				=> 3<br>
+		Quinta 				=> 4<br>
+		Oficina 			=> 5<br>
+		Amarra 				=> 6<br>
+		Local 				=> 7<br>
+		Edificio Comercial 	=> 8<br>
+		Campo 				=> 9<br>
+		Cochera 			=> 10<br>
+		Hotel 				=> 11<br>
+		Nave Industrial 	=> 12<br>
+		PH 					=> 13<br>
+		Depósito 			=> 14<br>
+		Fondo de Comercio 	=> 15<br>
+		Baulera 			=> 16<br>
+		Bodega 				=> 17<br>
+		Finca 				=> 18<br>
+		Chacra 				=> 19<br>
+		Cama náutica 		=> 20<br>
+		Isla 				=> 21<br>
+		Terraza 			=> 23<br>
+		Galpón 				=> 24<br>
+	</code>
+	<hr>
+	<h1 id="configureURLTokko">Configurar URL de propiedad desde Tokko Broker</h1>
+	<p>
+	    A cada cliente de MediaHaus se le debe configurar la URL para visitar las propiedades desde Tokko, ya que sus administrativos usan esta funcionalidad al crear el flujo de trabajo con sus clientes, para esto se debe ingresar a:
+	    <a href="https://www.tokkobroker.com/company/configuration" targe="_blank">https://www.tokkobroker.com/company/configuration</a><br>
+	    <img src="img/configureURLTokko.png">
+	    <br>
+	    Se debe llenar el campo con el dominio del cliente, con la preferencia de http | https y si tiene www, con los parametros /propiedad/$id$ ejemplo:
+	</p>
+	<code>
+	    https://mediabroker.com.ar/propiedad/$id$
+	</code>
+	<p>Resultado final: </p>
+	<img src="img/configureURLTokko1.png">
+	<hr>
+		<h1 id="gmapsKey">Google Maps Key's</h1>
+	<p>
+	    Existen 1 Key para uso en desarrollo de Media Haus la cual funcion en: localhost, localhost:8888, 127.0.0.1, http://*.mediadev.com.ar, http://*.mediadev.com.ar, http://*.mediadev.com.ar, http://*.mediahaus.com.ar y https://*.mediahaus.com.ar
+	</p>
+	<code>
+	    AIzaSyBCZfthtQmcNdn7C_nktYzKnzPnOmdWYss
+	</code>
+</div>
+</body>
+</html>

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Massana</title>
+    <!-- End meta -->
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- End CSS Files -->
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <!-- End Fonts & Icons -->
+</head>
+<body>
+    <!-- Hero section -->
+    <header id="hero">
+        <div class="black-contain"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <picture>
+                        <span></span>
+                    </picture>
+                </div>
+            </div>  
+            <div class="container">
+                <div class="row">
+                    <img src="img/ICONOS-34.svg" alt="" class="live-belgrano">
+                </div>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </div>
+    </header>
+    <!-- End Hero section -->
+
+    <!-- Section 1 -->
+    <section id="sec_1">
+        <div class="container">
+            <div class="row">
+                <img src="img/ICONOS-34.svg" alt="">
+                <i class="icon-massana-5"></i>
+                <h1>Un edificio único <br>para quienes buscan <br>el equilibrio.</h1>
+                <h2>ARTE + DISEÑO + VERDE</h2>
+                <p>
+                    <strong>Edificio boutique</strong> frente a próxima plaza, <br> en el corazón de Belgrano, <br> Teodoro García 2690 y 2698 <br> esquina Moldes.
+                </p>
+                <h4>
+                    DISEÑADO POR EL RECONOCIDO ARQUITECTO URUGUAYO, <br> CARLOS OTT.
+                </h4>
+                <h6 class="belgranocaba">BELGRANO, CABA</h6>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 1 -->
+
+    <!-- Section 2 -->
+    <section id="sec_2">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6>
+                <div class="img">
+                    <span></span>
+                </div>
+                <h4>Carlos Ott</h4>
+                <p>"Hay que estudiar al máximo cada situacion y encontrar propuestas novedosas e inteligentes en la forma, el funcionamiento, los materiales, los equipamientos y los amenities de cada estructura</p>
+                <img src="img/ott-naranja.svg" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- End Section 2 -->
+
+    <!-- Section 3 -->
+    <section id="sec_3">
+        <div class="container">
+            <div class="row">
+                <h4>Obras destacadas</h4>
+                <div class="col-12 obras_contain">
+                    <div class="obras_destacadas">
+                        <picture>
+                            <span style="background-image: url(img/section3-1.jpg);"></span>
+                        </picture>
+                        <p>Ópera de la Bastilla,  <br> París. <b>1989</b></p>
+                    </div>
+                    <div class="obras_destacadas">
+                        <picture>
+                            <span style="background-image: url(img/section3-2.jpg);"></span>
+                        </picture>
+                        <p>Aeropuerto Int. de <br>Usuhaia, Argentina. <br> <b>1995</b></p>
+                    </div>
+                </div>
+                <div class="col-12 obras_contain">
+                    <div class="obras_destacadas">
+                        <picture>
+                            <span style="background-image: url(img/section3-3.jpg);"></span>
+                        </picture>
+                        <p>Banco Nacional,<br>Dubai. <b>1997</b></p>
+                    </div>
+                    <div class="obras_destacadas">
+                        <picture>
+                            <span style="background-image: url(img/section3-4.jpg);"></span>
+                        </picture>
+                        <p>Toore de las <br> Telecomunicaciones,<br>Montevideo. <b>2002</b></p>
+                    </div>
+                </div>
+                <div class="col-12 obras_contain">
+                    <div class="obras_destacadas">
+                        <picture>
+                            <span style="background-image: url(img/section3-5.jpg);"></span>
+                        </picture>
+                        <p>Jade,<br>Miami. <b>2009</b></p>
+                    </div>
+                    <div class="obras_destacadas">
+                        <picture>
+                            <span style="background-image:url(img/section3-6.jpg);background-position: left;"></span>
+                        </picture>
+                        <p>Muse, Sunny Isles Beach<br>Miami. <b>2018</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 3 -->
+
+    <!-- Section 4 -->
+    <section id="sec_4">
+        <div class="container-fluid">
+            <div class="row">
+                <picture>
+                    <span></span>
+                </picture>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h4>Live Belgrano, <br> edificio boutique.</h4>
+                <p>Una experiencia urbana diferente y única, tu refugio y a la vez tu conexion con el mundo.</p>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 4 -->
+
+    <!-- Section 5 -->
+    <section id="sec_5" class="all_img">
+        <div class="container-fluid" id="sec51">
+            <span></span>   
+            <div class="section_description">
+                <h5>Entrada</h5>
+                <p>Teodoro García <br>2690 y 2698</p>
+            </div>
+        </div>
+        <div class="container-fluid" id="sec52">
+            <span></span>
+            <div class="section_description">
+                <h5>Rooftop</h5>
+                <p>Con parrilla</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 5 -->
+
+    <!-- Section 6 -->
+    <section id="sec_6" class="all_img">
+        <div class="container-fluid" id="sec61">
+                <span></span>   
+                <div class="section_description top_box">
+                    <h5 class="text_left">Interior</h5>
+                    <p class="text_left">Cocina</p>
+                </div>
+            </div>
+            <div class="container-fluid" id="sec62">
+                <span></span>
+                <div class="section_description">
+                    <h5 class="text_left">Interior.</h5>
+                    <p class="text_left">Estar <br>comedor</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="row logos">
+                        <img src="img/gmassana.svg" alt="">
+                        <div>
+                            <img src="img/walmer.svg" alt="">
+                            <img src="img/ott.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End Section 6 -->
+
+    <!-- Section 7 -->
+    <section id="sec_7" class="all_img">
+        <div class="container-fluid" id="sec71">
+                <span></span>   
+                <div class="section_description top_box">
+                    <h5 class="text_left">Interior.</h5>
+                    <p class="text_left">Estudio</p>
+                </div>
+            </div>
+            <div class="container-fluid" id="sec72">
+                <span></span>
+                <div class="section_description top_box">
+                    <h5 class="text_left">Interior.</h5>
+                    <p class="text_left">3 ambientes <br>Baño principal</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="row logos">
+                        <img src="img/gmassana.svg" alt="">
+                        <div>
+                            <img src="img/walmer.svg" alt="">
+                            <img src="img/ott.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End Section 7 -->
+
+    <!-- Section 11 -->
+    <section id="sec_11">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6>
+                <picture>
+                    <span></span>
+                </picture>
+                <h5>45 unidades<br>pensadas al detalle.</h5>
+                <div class="alignright">
+                    <ul>
+                        <li>
+                            <strong>PISOS DE PORCELANATO SBG</strong>
+                        </li>
+                        <li>
+                            <strong>
+                                (Opcional)<br>
+                                CERRADURA SAMSUNG EZON
+                            </strong> en todas nuestras unidades.
+                        </li>
+                    </ul>
+                    <picture>
+                        <span></span>
+                    </picture>
+                </div>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 11 -->
+
+    <!-- Section 12 -->
+    <section id="sec_12">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6>
+                <h4>Ubicación<br>
+                    privilegiada.
+                </h4>
+                <p>
+                    A sólo 3 cuadras de la esquina de<br><strong>Av. Cabildo y Av. Federico Lacroze.</strong><br>Todas las unidades son al frente con excelente <strong>vista panorámica</strong> a la plaza.
+                </p>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <picture>
+                    <span></span>
+                </picture>
+            </div>
+        </div>
+
+    </section>
+    <!-- End Section 12 -->
+
+    <!-- Section 13 -->
+    <section id="sec_13">
+        <div class="container">
+            <div class="row">
+                <h4>Barrio con <br>
+                identidad Eco Slow.</h4>
+                <p>El barrio tendrá una identidad Eco Slow que en 5 años será reconocido por su calidad de vida gracias a sus amplios espacios verdes, edificos bajos, y conexión con todos los servicios y transportes.</p>
+                <summary>
+                    <img src="img/grafico.svg" alt="">
+                    <ul>
+                        <li><strong>22% ESPACIO PRIVADO</strong> para edificios de viviendas y oficinas</li>
+                        <li><strong>78% ESPACIO PRIVADO</strong> para espacios verdes</li>
+                    </ul>
+                </summary>
+                <picture>
+                    <span></span>
+                </picture>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 13 -->
+
+    <!-- Section 14 -->
+    <section id="sec_14">
+        <div class="container">
+            <div class="row">
+                <picture>
+                    <span></span>
+                </picture>
+                <picture>
+                    <span></span>
+                </picture>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="othercolor"></div>
+    </section>
+    <!-- End Section 14 -->
+
+    <!-- Section 15 -->
+    <section id="sec_15">
+        <div class="othercolor"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <picture>
+                    <span></span>
+                </picture>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <picture>
+                    <span></span>
+                </picture>
+                <h4>EL PROYECTO.</h4>
+                <ul>
+                    <div>
+                        <li>Espacio creado para brindar visibilidad, aumentando la seguridad y el bienestar de los vecinos de la zona.</li>
+                    </div>
+                    <div>
+                        <li>Estacionamiento subterráneo</li>
+                        <li>Espacios comerciales, culturales y gastronómicos.</li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="row logos">
+            <img src="img/gmassana.svg" alt="">
+            <div>
+                <img src="img/walmer.svg" alt="">
+                <img src="img/ott.svg" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- End Section 15 -->
+
+    <!-- Section 16 -->
+    <section id="sec_16">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <picture>
+                    <span></span>
+                </picture>
+                <picture id="second_img">
+                    <span></span>
+                </picture>
+                <div class="information">
+                    <h4>EL JARDÍN.</h4>
+                    <p>El jardín es un espacio de 3.065 m2, un buffer vegetal que aísla a los usuarios de las demás edificaciones.</p>
+                </div>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 16 -->
+
+    <!-- Section 17 -->
+    <section id="sec_17">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <summary>
+                    <i class="icon-massana-5"></i>
+                    <h4>Planos.</h4>
+                    <h5>Etapa 1</h5>
+                    <h6>Teodoro García <br>2698</h6>
+                </summary>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 17 -->
+
+    <!-- Section 18 -->
+    <section id="sec_18" class="planos">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <h4>Planta Baja <br>(PB).</h4>
+            </div>
+            <img src="img/section18.jpg" alt="" class="plano">
+            <summary class="row">
+                <h6>Planta Baja</h6>
+                <p>Hall de Acceso</p>
+                <ul>
+                    <li>Cocheras.</li>
+                    <li>Espacio de arte.</li>
+                </ul>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </summary>
+        </div>
+    </section>
+    <!-- End Section 18 -->
+
+    <!-- Section 19 -->
+    <section id="sec_19" class="planos">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <h4>Piso 1 al 8.</h4>
+            </div>
+            <img src="img/section19.jpg" alt="" class="plano">
+            <summary class="row">
+                <article>
+                    <h6><strong>Unidad A -</strong> 2 ambientes</h6>
+                    <div class="info">
+                        <div class="total">
+                            <h5>60.6 m2</h5>
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="detail_total">
+                            <div class="onlyone">
+                                <h5>49.20 m2</h5>
+                                <p>SUP. CUBIERTA</p>
+                            </div>
+                            <div class="info2">
+                                <div class="onlyone">
+                                    <h5>9.6 m2</h5>
+                                    <p>SUP. BALCON</p>
+                                </div>
+                                <div class="onlyone">
+                                    <h5>1.76 m2</h5>
+                                    <p>SUP. COMUN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <h6><strong>Unidad B -</strong> Estudio profesional</h6>
+                    <div class="info">
+                        <div class="total">
+                            <h5>27 m2</h5>
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="detail_total">
+                            <div class="onlyone">
+                                <h5>23 m2</h5>
+                                <p>SUP. CUBIERTA</p>
+                            </div>
+                            <div class="info2">
+                                <div class="onlyone">
+                                    <h5>3.2 m2</h5>
+                                    <p>SUP. BALCON</p>
+                                </div>
+                                <div class="onlyone">
+                                    <h5>0.79 m2</h5>
+                                    <p>SUP. COMUN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <h6><strong>Unidad C -</strong> Monoambiente</h6>
+                    <div class="info">
+                        <div class="total">
+                            <h5>39.8 m2</h5>
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="detail_total">
+                            <div class="onlyone">
+                                <h5>34 m2</h5>
+                                <p>SUP. CUBIERTA</p>
+                            </div>
+                            <div class="info2">
+                                <div class="onlyone">
+                                    <h5>4.65 m2</h5>
+                                    <p>SUP. BALCON</p>
+                                </div>
+                                <div class="onlyone">
+                                    <h5>1.16 m2</h5>
+                                    <p>SUP. COMUN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </summary>
+        </div>
+    </section>
+    <!-- End Section 19 -->
+
+    <!-- Section 20 -->
+    <section id="sec_20" class="planos">
+        <div class="container">
+            <div class="row">
+                    <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                    <h4>Piso 9 y 10.</h4>
+                </div>
+                <img src="img/section20.jpg" alt="" class="plano">
+                <summary class="row">
+                    <article>
+                        <h6><strong>Unidad A - </strong>2 ambientes</h6>
+                        <div class="info">
+                            <div class="total">
+                                <h5>60.6 m2</h5>
+                                <p>TOTAL</p>
+                            </div>
+                            <div class="detail_total">
+                                <div class="onlyone">
+                                    <h5>49.20 m2</h5>
+                                    <p>SUP. CUBIERTA</p>
+                                </div>
+                                <div class="info2">
+                                    <div class="onlyone">
+                                        <h5>9.6 m2</h5>
+                                        <p>SUP. BALCON</p>
+                                    </div>
+                                    <div class="onlyone">
+                                        <h5>1.76 m2</h5>
+                                        <p>SUP. COMUN</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article>
+                        <h6><strong>Unidad B - </strong>2 ambientes</h6>
+                        <div class="info">
+                            <div class="total">
+                                <h5>67.3 m2</h5>
+                                <p>TOTAL</p>
+                            </div>
+                            <div class="detail_total">
+                                <div class="onlyone">
+                                    <h5>57.10 m2</h5>
+                                    <p>SUP. CUBIERTA</p>
+                                </div>
+                                <div class="info2">
+                                    <div class="onlyone">
+                                        <h5>8.25 m2</h5>
+                                        <p>SUP. BALCON</p>
+                                    </div>
+                                    <div class="onlyone">
+                                        <h5>1.96 m2</h5>
+                                        <p>SUP. COMUN</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="row logos">
+                        <img src="img/gmassana.svg" alt="">
+                        <div>
+                            <img src="img/walmer.svg" alt="">
+                            <img src="img/ott.svg" alt="">
+                        </div>
+                    </div>
+                </summary>
+        </div>
+    </section>
+    <!-- End Section 20 -->
+
+    <!-- Section 21 -->
+    <section id="sec_21" class="planos">
+        <div class="container">
+                <div class="row">
+                        <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                        <h4>Piso 11.</h4>
+                    </div>
+                    <img src="img/section21.jpg" alt="" class="plano">
+                    <summary class="row">
+                        <article>
+                            <h6><strong>Unidad A - </strong>3 ambientes</h6>
+                            <div class="info">
+                                <div class="total">
+                                    <h5>111.76 m2</h5>
+                                    <p>TOTAL</p>
+                                </div>
+                                <div class="detail_total">
+                                    <div class="onlyone">
+                                        <h5>67.90 m2</h5>
+                                        <p>SUP. CUBIERTA</p>
+                                    </div>
+                                    <div class="info2">
+                                        <div class="onlyone">
+                                            <h5>40.60 m2</h5>
+                                            <p>SUP. BALCON</p>
+                                        </div>
+                                        <div class="onlyone">
+                                            <h5>3.3 m2</h5>
+                                            <p>SUP. COMUN</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="row logos">
+                            <img src="img/gmassana.svg" alt="">
+                            <div>
+                                <img src="img/walmer.svg" alt="">
+                                <img src="img/ott.svg" alt="">
+                            </div>
+                        </div>
+                    </summary>
+        </div>
+    </section>
+    <!-- End Section 21 -->
+
+    <!-- Section 22 -->
+    <section id="sec_22" class="planos">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <h4>Piso 12.</h4>
+            </div>
+            <img src="img/section22.jpg" alt="" class="plano">
+            <summary class="row">
+                <article>
+                    <h6><strong>Rooftop</strong></h6>
+                </article>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </summary>
+        </div>
+    </section>
+    <!-- End Section 22 -->
+
+    <!-- Section 23 -->
+    <section id="sec_23">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <summary>
+                    <i class="icon-massana-5"></i>
+                    <h4>Planos.</h4>
+                    <h5>Etapa 2</h5>
+                    <h6>Teodoro García <br>2690</h6>
+                </summary>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 23 -->
+
+    <!-- Section 24 -->
+    <section id="sec_24" class="planos">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <h4>Subsuelo <br>(SS).</h4>
+                <picture>
+                    <span></span>
+                </picture>
+            </div>
+            <summary class="row">    
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </summary>
+        </div>
+    </section>
+    <!-- End Section 24 -->
+
+    <!-- Section 25 -->
+    <section id="sec_25" class="planos">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <h4>Planta Baja <br>(PB).</h4>
+            </div>
+            <img src="img/section24.jpg" alt="" class="plano">
+            <summary class="row">
+                <h6>Planta Baja</h6>
+                <p>Hall de Acceso</p>
+                <ul>
+                    <li>Hall de entrada</li>
+                    <li>Estacionamiento/Bicicleta</li>
+                </ul>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </summary>
+        </div>
+    </section>
+    <!-- End Section 25 -->
+
+    <!-- Section 26 -->
+    <section id="sec_26" class="planos">
+        <div class="container">
+            <div class="row">
+                <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                <h4>Piso 1.</h4>
+            </div>
+            <img src="img/section25.jpg" alt="" class="plano">
+            <summary class="row">
+                <article>
+                    <h6><strong>Unidad A - </strong>Monoambiente (divisible)</h6>
+                    <div class="info">
+                        <div class="total">
+                            <h5>50.7 m2</h5>
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="detail_total">
+                            <div class="onlyone">
+                                <h5>42.20 m2</h5>
+                                <p>SUP. CUBIERTA</p>
+                            </div>
+                            <div class="info2">
+                                <div class="onlyone">
+                                    <h5>5.60 m2</h5>
+                                    <p>SUP. BALCON</p>
+                                </div>
+                                <div class="onlyone">
+                                    <h5>2.87 m2</h5>
+                                    <p>SUP. COMUN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <h6><strong>Undiad B - </strong>Monoambiente</h6>
+                    <div class="info">
+                        <div class="total">
+                            <h5>30.5 m2</h5>
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="detail_total">
+                            <div class="onlyone">
+                                <h5>24.55 m2</h5>
+                                <p>SUP. CUBIERTA</p>
+                            </div>
+                            <div class="info2">
+                                <div class="onlyone">
+                                    <h5>4.20 m2</h5>
+                                    <p>SUP. BALCON</p>
+                                </div>
+                                <div class="onlyone">
+                                    <h5>1.73 m2</h5>
+                                    <p>SUP. COMUN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <h6><strong>Unidad C - </strong>Estudio profesional</h6>
+                    <div class="info">
+                        <div class="total">
+                            <h5>28.2 m2</h5>
+                            <p>TOTAL</p>
+                        </div>
+                        <div class="detail_total">
+                            <div class="onlyone">
+                                <h5>22.90 m2</h5>
+                                <p>SUP. CUBIERTA</p>
+                            </div>
+                            <div class="info2">
+                                <div class="onlyone">
+                                    <h5>3.70 m2</h5>
+                                    <p>SUP. BALCON</p>
+                                </div>
+                                <div class="onlyone">
+                                    <h5>1.60 m2</h5>
+                                    <p>SUP. COMUN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div class="row logos">
+                    <img src="img/gmassana.svg" alt="">
+                    <div>
+                        <img src="img/walmer.svg" alt="">
+                        <img src="img/ott.svg" alt="">
+                    </div>
+                </div>
+            </summary>
+        </div>
+    </section>
+    <!-- End Section 26 -->
+
+    <!-- Section 27 -->
+    <section id="sec_27" class="planos">
+        <div class="container">
+                <div class="row">
+                        <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                        <h4>Piso 2 al 7.</h4>
+                    </div>
+                    <img src="img/section26.jpg" alt="" class="plano">
+                    <summary class="row">
+                        <article>
+                            <h6><strong>Unidad A - </strong>Monoambiente (divisible)</h6>
+                            <div class="info">
+                                <div class="total">
+                                    <h5>50.7 m2</h5>
+                                    <p>TOTAL</p>
+                                </div>
+                                <div class="detail_total">
+                                    <div class="onlyone">
+                                        <h5>42.20 m2</h5>
+                                        <p>SUP. CUBIERTA</p>
+                                    </div>
+                                    <div class="info2">
+                                        <div class="onlyone">
+                                            <h5>5.60 m2</h5>
+                                            <p>SUP. BALCON</p>
+                                        </div>
+                                        <div class="onlyone">
+                                            <h5>2.87 m2</h5>
+                                            <p>SUP. COMUN</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+                            <h6><strong>Unidad B - </strong>Monoambiente</h6>
+                            <div class="info">
+                                <div class="total">
+                                    <h5>59 m2</h5>
+                                    <p>TOTAL</p>
+                                </div>
+                                <div class="detail_total">
+                                    <div class="onlyone">
+                                        <h5>47.40 m2</h5>
+                                        <p>SUP. CUBIERTA</p>
+                                    </div>
+                                    <div class="info2">
+                                        <div class="onlyone">
+                                            <h5>8.30 m2</h5>
+                                            <p>SUP. BALCON</p>
+                                        </div>
+                                        <div class="onlyone">
+                                            <h5>3.34 m2</h5>
+                                            <p>SUP. COMUN</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="row logos">
+                            <img src="img/gmassana.svg" alt="">
+                            <div>
+                                <img src="img/walmer.svg" alt="">
+                                <img src="img/ott.svg" alt="">
+                            </div>
+                        </div>
+                    </summary>
+        </div>
+    </section>
+    <!-- End Section 27 -->
+
+    <!-- Section 28 -->
+    <section id="sec_28" class="planos">
+        <div class="container">
+                <div class="row">
+                        <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                        <h4>Piso 8 al 10.</h4>
+                    </div>
+                    <img src="img/section27.jpg" alt="" class="plano">
+                    <summary class="row">
+                        <article>
+                            <h6><strong>Unidad A - </strong>3 ambientes</h6>
+                            <div class="info">
+                                <div class="total">
+                                    <h5>110.13 m2</h5>
+                                    <p>TOTAL</p>
+                                </div>
+                                <div class="detail_total">
+                                    <div class="onlyone">
+                                        <h5>86.30 m2</h5>
+                                        <p>SUP. CUBIERTA</p>
+                                    </div>
+                                    <div class="info2">
+                                        <div class="onlyone">
+                                            <h5>17.60 m2</h5>
+                                            <p>SUP. BALCON</p>
+                                        </div>
+                                        <div class="onlyone">
+                                            <h5>6.2 m2</h5>
+                                            <p>SUP. COMUN</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="row logos">
+                            <img src="img/gmassana.svg" alt="">
+                            <div>
+                                <img src="img/walmer.svg" alt="">
+                                <img src="img/ott.svg" alt="">
+                            </div>
+                        </div>
+                    </summary>
+        </div>
+    </section>
+    <!-- End Section 28 -->
+
+    <!-- Section 29 -->
+    <section id="sec_29" class="planos">
+        <div class="container">
+                <div class="row">
+                        <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                        <h4>Piso 11.</h4>
+                    </div>
+                    <img src="img/section28.jpg" alt="" class="plano">
+                    <summary class="row">
+                        <article>
+                            <h6><strong>Unidad A - </strong>3 ambientes <b>(con parrilla y jacuzzi)</b></h6>
+                            <div class="info">
+                                <div class="total">
+                                    <h5>110.19 m2</h5>
+                                    <p>TOTAL</p>
+                                </div>
+                                <div class="detail_total">
+                                    <div class="onlyone">
+                                        <h5>71.45 m2</h5>
+                                        <p>SUP. CUBIERTA</p>
+                                    </div>
+                                    <div class="info2">
+                                        <div class="onlyone">
+                                            <h5>32.50 m2</h5>
+                                            <p>SUP. BALCON</p>
+                                        </div>
+                                        <div class="onlyone">
+                                            <h5>6.2 m2</h5>
+                                            <p>SUP. COMUN</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="row logos">
+                            <img src="img/gmassana.svg" alt="">
+                            <div>
+                                <img src="img/walmer.svg" alt="">
+                                <img src="img/ott.svg" alt="">
+                            </div>
+                        </div>
+                    </summary>
+        </div>
+    </section>
+    <!-- End Section 29 -->
+
+    <!-- Section 30 -->
+    <section id="sec_30" class="planos">
+            <div class="container">
+                <div class="row">
+                    <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                    <h4>Piso 12,<br>(SUM).</h4>
+                </div>
+                <img src="img/section29.jpg" alt="" class="plano">
+                <summary class="row">
+                    <article>
+                        <h6><strong>Rooftop</strong></h6>
+                        <p>con parrilla.</p>
+                    </article>
+                    <div class="row logos">
+                        <img src="img/gmassana.svg" alt="">
+                        <div>
+                            <img src="img/walmer.svg" alt="">
+                            <img src="img/ott.svg" alt="">
+                        </div>
+                    </div>
+                </summary>
+            </div>
+        </section>
+    <!-- End Section 30 -->
+
+    <!-- Section 31 -->
+    <section id="sec_31">
+            <div class="container">
+                    <div class="row">
+                        <h6 class="livebelgrano">LIVE BELGRANO</h6> 
+                        <h4>Piso 13.</h4>
+                        <picture>
+                            <span></span>
+                        </picture>
+                    </div>
+                    <summary class="row">    
+                        <div class="row logos">
+                            <img src="img/gmassana.svg" alt="">
+                            <div>
+                                <img src="img/walmer.svg" alt="">
+                                <img src="img/ott.svg" alt="">
+                            </div>
+                        </div>
+                    </summary>
+                </div>
+    </section>
+    <!-- End Section 31 -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="section_description">
+                    <p>Direccion</p>
+                    <p>Teodoro García <br>2698 y 2690.</p>
+                </div>
+            </div>
+            <div class="row acenter">
+                <img src="img/ICONOS-34.svg" alt="" class="live-belgrano">
+                <p>
+                    EDIFICIO BOUTIQUE <br> 2019
+                </p>
+            </div>
+            <div class="row logos">
+                <img src="img/gmassana.svg" alt="">
+                <div>
+                    <img src="img/walmer.svg" alt="">
+                    <img src="img/ott.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <!-- JS Files -->
+    <script src="js/main.js"></script>
+    <!-- End JS Files -->
+</body>
+</html>

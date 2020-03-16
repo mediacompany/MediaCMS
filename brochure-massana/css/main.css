@@ -1,0 +1,788 @@
+*{
+    font-size: 12px;
+    color: #ddd;
+    text-align: center;
+    line-height: 1.7;
+    font-family: 'Harmonia Std';
+}
+:root{
+    --paddingsection1: 2rem;
+    --primarycolor: #89472a;
+}
+ul li{
+    text-align: left;
+}
+
+header,section,footer{
+    min-height: 100vh;
+    max-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 35px;
+    position: relative;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin-bottom: 1.5rem;
+}
+h4{
+    color: var(--primarycolor);
+    margin-top: var(--paddingsection1);
+    width: 100%;
+    text-align: left;
+}
+.container{
+    min-height: 100vh;
+}
+picture{
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+picture span{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+/* Hero section */
+header#hero{
+    background: var(--primarycolor);
+}
+
+
+.black-contain{
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 200000 !important;
+}
+.live-belgrano{
+    margin: 0 auto;
+    width: 50%;
+    display: block;
+}
+header .live-belgrano{
+    margin-top: 4rem;
+    margin-left: 20px;
+}
+footer .acenter{
+    position: absolute;
+    top: 45%;
+    left: 15px;
+    width: 100%;
+}
+header#hero p, footer p{
+    text-align: center;
+    font-family: 'Harmonia Std';
+    font-size: .8rem;
+    display: block;
+    margin: 2.5rem auto;
+    width: 100%;
+}
+.logos{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 1000;
+}
+.logos img{
+    width: 60px;
+}
+header#hero .logos{
+    justify-content: flex-end;
+}
+.belgranocaba{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: .6rem;
+    margin-bottom: 3rem;
+}
+.livebelgrano{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: .6rem;
+    margin-top: 2rem;
+    z-index: 1000;
+}
+/* End hero section */
+
+section#sec_1{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: var(--primarycolor);
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+section#sec_1 img{
+    width: 40%;
+    margin: 0 auto;
+}
+section#sec_1 i{
+    display: block;
+    font-size: 2rem;
+    width: 100%;
+    margin: 4rem 0 2rem 0;
+}
+section#sec_1 h1{
+    font-size: 2rem;
+    width: 100%;
+}
+section#sec_1 p, section#sec_1 p strong{
+    width: 70%;
+    font-size: 1rem;
+    margin-left:auto;
+    margin-right: auto;
+}
+section#sec_1 p strong{
+    font-family: 'Harmonia Pro';
+    font-weight: 600;
+}
+section#sec_1 h4{
+    margin-top: 2rem;
+    font-size: .8rem;
+    width: 100%;
+    color: #ddd;
+    text-align: center;
+    padding: 0;
+}
+section#sec_1 h2{
+    text-align: center;
+    width: 100%;
+    color: #bb917f;
+}
+
+section#sec_2{
+    padding-top: 6rem;
+    padding-bottom: var(--paddingsection1);
+}
+
+section#sec_2 div.img{
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+    position: relative;
+}
+section#sec_2 div.img span{
+    position: absolute;
+    background-image: url(../img/section2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+section#sec_2 p{
+    text-align: left;
+    width: 100%;
+    padding-right: 30%;
+    font-size: .8rem;
+    color: #808080;
+}
+section#sec_2 img{
+    width: 100px;
+}
+
+section#sec_3{
+    padding-top: var(--paddingsection1);
+    padding-bottom: var(--paddingsection1);
+}
+section#sec_3 .obras_contain{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding:0;
+}
+section#sec_3 .obras_destacadas{
+    margin: 0;
+}
+section#sec_3 .obras_destacadas picture{
+    width: 110px;
+    height: 110px;
+    display: block;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+section#sec_3 .obras_destacadas picture span{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+section#sec_3 .obras_destacadas p{  
+    width: 100%;
+    color: var(--primarycolor);
+    font-size: .8rem;
+    margin-top: 1rem;
+    line-height: 1.2;
+    text-align: left;   
+}
+section#sec_3 .obras_destacadas p b{
+    font-size: .8rem;
+    color: #808080;
+    font-weight: normal;
+    line-height: 1.2;
+}
+section#sec_4, section#sec_12, section#sec_15, header#hero{
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+}
+section#sec_4 .container, section#sec_12 .container, section#sec_15 .container{
+    padding: 0 50px;
+    height: unset;
+    min-height: unset;
+}
+section#sec_4 picture, section#sec_12 picture, section#sec_15 picture, header#hero picture{
+    width: 100%;
+    height: 0;
+    padding-bottom: 120%;
+    position: relative;
+}
+section#sec_4 picture span, section#sec_12 picture span, section#sec_15 picture span, header#hero picture span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/hero.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+section#sec_4 p{
+    text-align: left;
+    font-size: .8rem;
+    width: 50%;
+    color: #808080;
+}
+
+.all_img{
+    background: var(--primarycolor);
+    padding: 0;
+}
+.all_img .container-fluid{
+    margin: 0;
+    height: 43vh;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.section_description{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.section_description h5{
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: right;
+}
+.section_description p{
+    font-size: .8rem;
+    line-height: 1.3;
+    text-align: right;
+}
+.all_img .container-fluid span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 85%;    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#sec51 span{ 
+    background-image: url(../img/section6.jpg);
+}
+#sec52 span{
+    background-image: url(../img/section5.jpg);
+}
+#sec61 span{
+    background-image: url(../img/section7.jpg);
+}
+.top_box{
+    top: 40px;
+}
+.text_left{
+    text-align: left !important;
+}
+#sec62 span{
+    background-image: url(../img/section9.jpg);
+}
+#sec71 span{
+    background-image: url(../img/section8.jpg);
+}
+#sec72 span{
+    background-image: url(../img/section10.jpg);
+}
+
+section#sec_8{
+    background-image: url(../img/section8.jpg);
+    background-position: 30%;
+}
+section#sec_9{
+    background-image: url(../img/section9.jpg);
+    background-position: 30%;
+}
+section#sec_10{
+    background-image: url(../img/section10.jpg);
+    background-position: 20%;
+}
+section#sec_11{
+    padding-top: 4rem;
+    padding-bottom: var(--paddingsection1);
+}
+section#sec_11 .livebelgrano, section#sec_12 .livebelgrano{
+    color: #808080;
+}
+section#sec_11 picture{
+    width: 50%;
+    padding-bottom: 60%;
+}
+section#sec_11 picture span{
+    background-image: url(../img/section11-1.jpg);
+}
+section#sec_11 h5{
+    color: var(--primarycolor);
+    margin: var(--paddingsection1) 0;
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+}
+section#sec_11 h5 b{
+    font-weight: normal;
+    color: #808080;
+}
+section#sec_11 .alignright{
+    width: 80%;
+    margin-left: auto;
+}
+section#sec_11 .alignright ul{
+    width: 70%;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-position: inside;
+    margin-bottom: 1rem;
+}
+section#sec_11 .alignright ul li{
+    font-size: .8rem;
+    color: #808080;
+    text-align: left;
+    margin-left: 0;
+}
+section#sec_11 .alignright ul li strong{
+    font-size: inherit;
+    color: inherit;
+}
+section#sec_11 .alignright picture{
+    width: 100%;
+    display: block;
+}
+section#sec_11 .alignright picture span{
+    background-image: url(../img/section11-2.jpg);
+}
+section#sec_12{
+    padding-top: var(--paddingsection1);
+    padding-bottom: var(--paddingsection1);
+    color: #231f20;
+}
+section#sec_12 h4{
+    color: #231f20;
+}
+section#sec_12 p{
+    line-height: 1.3;
+    text-align: left;
+    color: #231f20;
+    font-size: .8rem;
+    width: 70%;
+}
+section#sec_12 p strong{
+    font-size: inherit;
+    color: inherit;
+    font-family: 'Harmonia Pro';
+}
+section#sec_12 picture span{
+    background-image: url(../img/map.png);
+}
+section#sec_13{
+    text-align: left;
+}
+section#sec_13 p{
+    text-align: left;
+    width: 100%;
+    padding-right: 40%; 
+    color: #808080;
+    font-size: .8rem;
+}
+section#sec_13 summary{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+
+}
+section#sec_13 summary img{
+    width: 40%;
+}
+section#sec_13 summary ul{
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    width: 50%;
+    margin-left: 1rem;
+}
+section#sec_13 summary ul li{
+    font-size: .8rem;
+    margin: 0;
+    color: #808080;
+    line-height: 1.7;
+}
+section#sec_13 summary ul li strong{
+    font-size: inherit;
+    color: inherit;
+    font-family: 'Harmonia Pro';
+}
+section#sec_13 picture{
+    width: 100%;
+    padding-bottom: 80%;
+    margin-top: 1.5rem;
+}
+section#sec_13 picture span{
+    background-image: url(../img/section13.jpg);
+}
+section#sec_14{
+    position: relative;
+    padding-top: var(--paddingsection1);
+    padding-bottom: var(--paddingsection1);
+}
+.othercolor{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: #808080;
+    z-index: 2 !important;
+}
+section#sec_14 picture{
+    width: 100%;
+    margin: 3rem auto 0 auto;
+    padding-bottom: 70%;
+    margin-top: 3rem;
+}
+section#sec_14 picture:first-child{
+    width: 70%;
+}
+section#sec_14 picture span{
+    background-image: url(../img/section14-2.jpg);
+}
+section#sec_14 picture:first-child span{
+    background-image: url(../img/section14-1.jpg);
+}
+
+section#sec_14 .container{
+    z-index: 3 !important;
+    position: absolute;
+    padding: var(--paddingsection1) 50px;
+    top: 0;
+    left: 0;
+}
+
+section#sec_15{
+    position: relative;
+    padding-top: var(--paddingsection1);
+    padding-bottom: var(--paddingsection1);
+}
+section#sec_15 .othercolor{
+    top: 0;
+    bottom: unset;
+}
+section#sec_15 .container-fluid{
+}
+section#sec_15 .container-fluid picture{
+    z-index: 10000;
+    padding-bottom: 70%;
+    top: 1rem;
+}
+section#sec_15 .container-fluid picture span{
+    background-image: url(../img/section15-1.png);
+}
+section#sec_15 .container{
+    position: absolute;
+    top: 48%;
+    left: 0;
+    padding-bottom: 3rem;
+}
+section#sec_15 .container picture{
+    padding-bottom: 40%;
+    width: 70%;
+}
+section#sec_15 .container picture span{
+    background-image: url(../img/section15-2.jpg);
+}
+section#sec_15 .container h4, section#sec_16 h4{
+    color: #231f20;
+    font-size: 1rem;
+}
+section#sec_15 .container ul{
+    display: flex;
+    padding: 0;
+    list-style-position: outside;
+}
+section#sec_15 .container ul div{
+    width: 50%;
+    padding: 0 1rem 0 0;
+}
+section#sec_15 .container ul li{
+    color: #808080;
+    font-size: .8rem;
+    text-align: left;
+}
+
+section#sec_16{
+
+}
+section#sec_16 picture{
+    padding-bottom: 80%;
+    top: 4rem;
+    width: 100%;
+}
+section#sec_16 picture span{
+    background-image: url(../img/section16-1.png);
+    background-position-y: top;
+}
+section#sec_16 picture#second_img{
+
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 55%;
+    margin-top: 1rem;
+}
+section#sec_16 picture#second_img span{
+    background-image: url(../img/section16-2.jpg);
+}
+section#sec_16 .information{
+    margin: 3.5rem 0;
+    padding: 0;
+    width: 100%;
+    padding-right: 60%;
+}
+section#sec_16 .information p{
+    font-size: .8rem;
+    text-align: left;
+    color: #808080;
+    width: 100%;
+}
+section#sec_17, section#sec_23{
+    background: var(--primarycolor);
+}
+section#sec_17 .container, section#sec_23 .container{
+    display: flex;
+    align-items: center;
+}
+section#sec_17 .container .row, section#sec_23 .container .row{
+    width: 100%;
+}
+section#sec_17 div.row summary, section#sec_23 div.row summary{
+    width: 100%;
+    text-align: left;
+}
+section#sec_17 summary h4, section#sec_23 summary h4{
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+}
+section#sec_17 summary i, section#sec_23 summary i{
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+section#sec_17 summary h5, section#sec_23 summary h5{
+    text-align: left;
+    color: #bb917f;
+    font-size: 1.5rem;
+}
+section#sec_17 summary h6, section#sec_23 summary h6{
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+section.planos{
+    padding-top: 3rem;
+}
+section.planos img.plano{
+    width: 120%;
+    margin: 0 -50px;
+}
+section.planos summary h6{
+    color: var(--primarycolor);
+    width: 100%;
+    text-align: left;
+    margin-bottom: .5rem;
+}
+section.planos summary p{
+    width: 100%;
+    text-align: left;
+    color: #808080;
+    margin-bottom: 0;
+}
+section.planos summary ul{
+    list-style-position: inside;
+    padding:0;
+}
+section.planos summary ul li{
+    font-size: .8rem;
+    color: #808080;
+    text-align: left;
+}
+section.planos summary article{
+    width: 100%;
+}
+section.planos summary article h6{
+    font-size: 1rem;
+    color: #808080;
+}
+section.planos summary article h6 strong{
+    color: var(--primarycolor);
+}
+section.planos summary article .info{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+section.planos summary article .info .total{
+    width: 35%;
+}
+section.planos summary article .info .total h5{
+    margin: 0;
+    text-align: left;
+    font-size: 1rem;
+    color: #231f20;
+}
+section.planos summary article .info .total p{
+    margin: 0;
+    text-align: left;
+    font-size: .8rem;
+}
+
+section.planos summary article .info .detail_total .onlyone{
+    margin-right: 1rem;
+}
+section.planos summary article .info .detail_total .onlyone h5{
+    margin: 0;
+    text-align: left;
+    font-size: .8rem;
+    color: #231f20;
+}
+section.planos summary article .info .detail_total .onlyone p{
+    margin: 0;
+    text-align: left;
+    font-size: .6rem;
+}
+
+section.planos summary article .info .detail_total .info2{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+section#sec_24 picture, section#sec_30 picture, section#sec_31 picture{
+    width: 100%;
+    padding-bottom: 130%;
+}
+section#sec_24 picture span{
+    background-image: url(../img/section23.jpg);
+    background-position: 60%;
+}
+section#sec_30 picture span{
+    background-image: url(../img/section29.jpg);
+    background-position: 60%;
+    background-size: 150%;
+}
+section#sec_31 picture span{
+    background-image: url(../img/section30.jpg);
+}
+section#sec_29 h6 b{
+    font-weight: normal;
+    color: #808080;
+    font-size: inherit;
+}
+footer{
+    background: var(--primarycolor);
+}
+footer .section_description p{
+    margin: 0;
+    margin-bottom: .5rem;
+    text-align: left;
+}
+footer .section_description{
+    top: 40px;
+}
+section#sec_24{
+    display: none;
+}
+section#sec_31{
+    display: none;
+}
+@media (min-width: 576px){
+    section#sec_4 picture, section#sec_12 picture, section#sec_15 picture, header#hero picture{
+        padding-bottom: 65vh;
+    }
+    section#sec_4 picture span, section#sec_12 picture span, section#sec_15 picture span, header#hero picture span{
+        background-position-y: 5    0%;
+        background-size: cover;
+    }
+    section#sec_3 .obras_contain{
+        justify-content: center;
+    }
+    section#sec_3 .obras_destacadas:first-child{
+        margin-right: 4rem;
+    }
+    section#sec_16 picture{
+        padding-bottom: 55%;
+    }
+    section#sec_16 picture span{
+        background-size: 70%;
+    }
+    section#sec_2 div.img{
+        padding-bottom: 60vh;
+        width: 50%; 
+    }
+
+}
